@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html lang="en" class="h-full">
  <head>
   <meta charset="UTF-8">
@@ -33,6 +33,32 @@
       0%, 100% { transform: translateX(0) scale(0.95); }
       25% { transform: translateX(-10px) scale(0.95); }
       75% { transform: translateX(10px) scale(0.95); }
+    }
+    
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    
+    @keyframes sparkle {
+      0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.5) rotate(180deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+      }
     }
     
     .nav-link {
@@ -371,7 +397,7 @@
                 <ul class="body-font" style="line-height: 1.8; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0;">
                   <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Detailed lesson plans with differentiation strategies</span></li>
                   <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Scaffolded learning experiences</span></li>
-                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Incorporation of multiple teaching modalities</span></li>
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">���</span><span>Incorporation of multiple teaching modalities</span></li>
                   <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Real-world connections and authentic tasks</span></li>
                 </ul>
               </div>
@@ -423,7 +449,7 @@
                 <li style="margin-bottom: 0.5rem;">• Vocabulary Picture Quest</li>
                 <li style="margin-bottom: 0.5rem;">• Vocabulary Maze</li>
               </ul>
-              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Coming Soon</button>
+              <button onclick="showGameMenu('vocabulary')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%;">Play Games</button>
             </div>
             
             <!-- Card 2: Word Building Games -->
@@ -435,11 +461,9 @@
               <ul class="body-font" style="line-height: 1.8; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0; margin-bottom: 1.5rem;">
                 <li style="margin-bottom: 0.5rem;">• Word Family Match</li>
                 <li style="margin-bottom: 0.5rem;">• Build-the-Word Cards</li>
-                <li style="margin-bottom: 0.5rem;">• Phonics Memory Match</li>
-                <li style="margin-bottom: 0.5rem;">• Spin & Read</li>
-                <li style="margin-bottom: 0.5rem;">• Word Builder Train</li>
+                <li style="margin-bottom: 0.5rem;">• Sentence Builder Train</li>
               </ul>
-              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Coming Soon</button>
+              <button onclick="showWordBuildingMenu()" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%;">Play Games</button>
             </div>
             
             <!-- Card 3: Math & Logic Games -->
@@ -453,7 +477,7 @@
                 <li style="margin-bottom: 0.5rem;">• Problem-Solving Challenge</li>
                 <li style="margin-bottom: 0.5rem;">• Pattern Recognition Puzzle</li>
               </ul>
-              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Coming Soon</button>
+              <button onclick="showMathGamesMenu()" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%;">Play Games</button>
             </div>
             
             <!-- Card 4: Lesson Summaries -->
@@ -607,7 +631,7 @@
                   &#128196; <strong>View the complete Robotics Lesson</strong>
                 </p>
                 <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
-                  <a href="https://drive.google.com/file/d/1ESygmpC0pOJIVixKjZ0gYyMNLlxVCojl/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-primary body-font" style="display: inline-block; background-color: ${config.accent_color}; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 500;">Open Lesson →</a>
+                  <a href="hhttps://drive.google.com/file/d/1ESygmpC0pOJIVixKjZ0gYyMNLlxVCojl/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-primary body-font" style="display: inline-block; background-color: ${config.accent_color}; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 500;">Open Lesson →</a>
                   <p class="body-font" style="color: ${config.text_color}; opacity: 0.7; font-size: 0.9rem;">Opens in a new tab</p>
                 </div>
               </div>
@@ -1143,7 +1167,7 @@
       
       // Create close button
       const closeBtn = document.createElement('button');
-      closeBtn.textContent = '✕ Close';
+      closeBtn.textContent = '��� Close';
       closeBtn.className = 'btn-primary body-font';
       closeBtn.style.cssText = `
         position: absolute;
@@ -1448,6 +1472,1463 @@
       document.body.appendChild(modal);
     }
 
+    // Game Data
+    const vocabularyMazeQuestions = [
+      { word: "Happy", options: ["Sad", "Joyful", "Angry", "Tired"], correct: 1 },
+      { word: "Fast", options: ["Slow", "Quick", "Heavy", "Light"], correct: 1 },
+      { word: "Big", options: ["Small", "Large", "Thin", "Short"], correct: 1 },
+      { word: "Cold", options: ["Hot", "Chilly", "Warm", "Burning"], correct: 1 },
+      { word: "Brave", options: ["Scared", "Courageous", "Weak", "Shy"], correct: 1 },
+      { word: "Beautiful", options: ["Ugly", "Pretty", "Plain", "Dull"], correct: 1 },
+      { word: "Smart", options: ["Dumb", "Intelligent", "Lazy", "Silly"], correct: 1 },
+      { word: "Strong", options: ["Weak", "Powerful", "Fragile", "Delicate"], correct: 1 },
+      { word: "Tiny", options: ["Huge", "Small", "Giant", "Massive"], correct: 1 },
+      { word: "Quiet", options: ["Loud", "Silent", "Noisy", "Booming"], correct: 1 },
+      { word: "Clean", options: ["Dirty", "Spotless", "Messy", "Filthy"], correct: 1 },
+      { word: "Rough", options: ["Smooth", "Coarse", "Soft", "Silky"], correct: 1 },
+      { word: "Dark", options: ["Bright", "Dim", "Shiny", "Glowing"], correct: 1 },
+      { word: "Sweet", options: ["Sour", "Sugary", "Bitter", "Spicy"], correct: 1 },
+      { word: "New", options: ["Old", "Fresh", "Ancient", "Worn"], correct: 1 }
+    ];
+
+    const readingComprehensionQuestions = [
+      {
+        passage: "The sun was shining brightly in the sky. Birds were singing in the trees. Children were playing happily in the park. It was a perfect summer day.",
+        question: "What were the children doing?",
+        options: ["Sleeping", "Playing in the park", "Reading books", "Watching TV"],
+        correct: 1
+      },
+      {
+        passage: "Emma loved to read books. Every night before bed, she would read for at least 30 minutes. Her favorite books were adventure stories about brave heroes.",
+        question: "What did Emma do every night?",
+        options: ["Watch movies", "Read books", "Play games", "Draw pictures"],
+        correct: 1
+      },
+      {
+        passage: "The little puppy was lost. He walked around the neighborhood looking for his home. A kind girl saw him and gave him some water. She helped him find his way back.",
+        question: "Who helped the puppy?",
+        options: ["A boy", "A kind girl", "A teacher", "A policeman"],
+        correct: 1
+      },
+      {
+        passage: "Tom's birthday party was amazing. There were colorful balloons everywhere. His friends brought him many presents. They ate delicious cake and played fun games.",
+        question: "What did Tom's friends bring?",
+        options: ["Food", "Presents", "Toys", "Books"],
+        correct: 1
+      },
+      {
+        passage: "The library was Sarah's favorite place. She loved the smell of books and the quiet atmosphere. She would spend hours exploring different sections and discovering new stories.",
+        question: "Why did Sarah love the library?",
+        options: ["It had computers", "She loved books and the quiet atmosphere", "It had games", "Her friends were there"],
+        correct: 1
+      },
+      {
+        passage: "The rain started falling gently. People opened their umbrellas and hurried to find shelter. The streets became wet and shiny. Everything smelled fresh and clean.",
+        question: "What did people open?",
+        options: ["Windows", "Doors", "Umbrellas", "Bags"],
+        correct: 2
+      },
+      {
+        passage: "Max loved science class. He enjoyed doing experiments and learning about how things work. His teacher always encouraged him to ask questions and explore new ideas.",
+        question: "What did Max love?",
+        options: ["Math class", "Science class", "Art class", "Music class"],
+        correct: 1
+      },
+      {
+        passage: "The garden was full of beautiful flowers. Red roses, yellow sunflowers, and purple violets grew together. Butterflies and bees flew from flower to flower collecting nectar.",
+        question: "What flew from flower to flower?",
+        options: ["Birds", "Butterflies and bees", "Dragonflies", "Moths"],
+        correct: 1
+      },
+      {
+        passage: "Jake practiced piano every day after school. He wanted to play in the school concert. With dedication and hard work, he learned a difficult piece of music.",
+        question: "What instrument did Jake practice?",
+        options: ["Guitar", "Piano", "Drums", "Violin"],
+        correct: 1
+      },
+      {
+        passage: "The camping trip was exciting. The family set up their tent near a lake. They cooked dinner over a campfire and told stories under the stars.",
+        question: "Where did they set up their tent?",
+        options: ["In the forest", "Near a lake", "On a mountain", "In a field"],
+        correct: 1
+      }
+    ];
+
+    // Sound effects using Web Audio API
+    function playSound(type) {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      if (type === 'correct') {
+        oscillator.frequency.value = 800;
+        oscillator.type = 'sine';
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.3);
+      } else if (type === 'wrong') {
+        oscillator.frequency.value = 200;
+        oscillator.type = 'sawtooth';
+        gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.2);
+      } else if (type === 'click') {
+        oscillator.frequency.value = 500;
+        oscillator.type = 'square';
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.05);
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.05);
+      } else if (type === 'win') {
+        const notes = [523, 659, 784, 1047];
+        notes.forEach((freq, i) => {
+          const osc = audioContext.createOscillator();
+          const gain = audioContext.createGain();
+          osc.connect(gain);
+          gain.connect(audioContext.destination);
+          osc.frequency.value = freq;
+          osc.type = 'sine';
+          gain.gain.setValueAtTime(0.2, audioContext.currentTime + i * 0.15);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + i * 0.15 + 0.3);
+          osc.start(audioContext.currentTime + i * 0.15);
+          osc.stop(audioContext.currentTime + i * 0.15 + 0.3);
+        });
+      }
+    }
+
+    // Shuffle array function
+    function shuffleArray(array) {
+      const newArray = [...array];
+      for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+      }
+      return newArray;
+    }
+
+    // Word Building Game Data - Thematic families for easy/medium, prefixes/suffixes for hard
+    const wordFamilies = {
+      easy: [
+        { family: '🏫 School', words: ['teacher', 'student', 'book', 'desk', 'pencil', 'ruler', 'classroom', 'homework'], icon: '🏫' },
+        { family: '🐾 Animals', words: ['dog', 'cat', 'bird', 'fish', 'rabbit', 'lion', 'elephant', 'tiger'], icon: '🐾' },
+        { family: '🍎 Food', words: ['apple', 'bread', 'milk', 'cheese', 'banana', 'pizza', 'rice', 'egg'], icon: '🍎' },
+        { family: '👨‍👩‍👧‍👦 Family', words: ['mother', 'father', 'sister', 'brother', 'baby', 'grandmother', 'grandfather', 'cousin'], icon: '👨‍👩‍👧‍👦' },
+        { family: '🌈 Colors', words: ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'black'], icon: '🌈' },
+        { family: '🏠 House', words: ['door', 'window', 'roof', 'kitchen', 'bedroom', 'bathroom', 'garden', 'garage'], icon: '🏠' },
+        { family: '☀️ Weather', words: ['sunny', 'rainy', 'cloudy', 'windy', 'snowy', 'hot', 'cold', 'stormy'], icon: '☀️' },
+        { family: '⚽ Sports', words: ['soccer', 'tennis', 'swimming', 'running', 'basketball', 'baseball', 'football', 'volleyball'], icon: '⚽' }
+      ],
+      medium: [
+        { family: '�� Science', words: ['microscope', 'experiment', 'laboratory', 'scientist', 'molecule', 'atom', 'research', 'discovery'], icon: '🔬' },
+        { family: '🎵 Music', words: ['piano', 'guitar', 'drums', 'violin', 'trumpet', 'flute', 'orchestra', 'concert'], icon: '🎵' },
+        { family: '🌍 Geography', words: ['mountain', 'ocean', 'river', 'forest', 'desert', 'valley', 'island', 'continent'], icon: '🌍' },
+        { family: '💼 Professions', words: ['doctor', 'nurse', 'engineer', 'pilot', 'chef', 'artist', 'architect', 'lawyer'], icon: '💼' },
+        { family: '🚗 Transportation', words: ['car', 'bus', 'train', 'airplane', 'bicycle', 'motorcycle', 'boat', 'helicopter'], icon: '🚗' },
+        { family: '🎨 Art', words: ['painting', 'sculpture', 'drawing', 'canvas', 'brush', 'palette', 'gallery', 'museum'], icon: '🎨' },
+        { family: '📚 Literature', words: ['novel', 'poem', 'story', 'chapter', 'author', 'character', 'plot', 'fiction'], icon: '📚' },
+        { family: '�� Nature', words: ['flower', 'tree', 'grass', 'leaf', 'seed', 'plant', 'soil', 'garden'], icon: '🌱' }
+      ],
+      hard: [
+        { family: 'un- (opposite)', words: ['undo', 'unhappy', 'unlock', 'unfair', 'unsafe', 'unclear', 'unable', 'untie'], icon: '🔄', type: 'prefix' },
+        { family: 're- (again)', words: ['redo', 'replay', 'rewrite', 'rebuild', 'restart', 'return', 'review', 'recycle'], icon: '🔁', type: 'prefix' },
+        { family: 'pre- (before)', words: ['preview', 'prefix', 'prepare', 'predict', 'prehistoric', 'preschool', 'pretest', 'preorder'], icon: '⏮️', type: 'prefix' },
+        { family: 'dis- (not)', words: ['disagree', 'disappear', 'disconnect', 'dishonest', 'dislike', 'disorder', 'distrust', 'disobey'], icon: '❌', type: 'prefix' },
+        { family: '-ful (full of)', words: ['careful', 'beautiful', 'helpful', 'wonderful', 'colorful', 'grateful', 'peaceful', 'powerful'], icon: '✨', type: 'suffix' },
+        { family: '-less (without)', words: ['careless', 'helpless', 'hopeless', 'endless', 'fearless', 'homeless', 'wireless', 'worthless'], icon: '∅', type: 'suffix' },
+        { family: '-ly (in a way)', words: ['quickly', 'slowly', 'happily', 'sadly', 'carefully', 'loudly', 'quietly', 'badly'], icon: '➡️', type: 'suffix' },
+        { family: '-tion (action)', words: ['action', 'creation', 'motion', 'station', 'nation', 'celebration', 'education', 'vacation'], icon: '⚡', type: 'suffix' }
+      ]
+    };
+
+    const buildWordCards = {
+      easy: [
+        { word: 'cat', image: '🐱', letters: ['c', 'a', 't'], type: 'CVC' },
+        { word: 'dog', image: '🐶', letters: ['d', 'o', 'g'], type: 'CVC' },
+        { word: 'sun', image: '☀️', letters: ['s', 'u', 'n'], type: 'CVC' },
+        { word: 'fox', image: '��', letters: ['f', 'o', 'x'], type: 'CVC' },
+        { word: 'hat', image: '🎩', letters: ['h', 'a', 't'], type: 'CVC' },
+        { word: 'bat', image: '🦇', letters: ['b', 'a', 't'], type: 'CVC' },
+        { word: 'pig', image: '🐷', letters: ['p', 'i', 'g'], type: 'CVC' },
+        { word: 'bug', image: '🐛', letters: ['b', 'u', 'g'], type: 'CVC' },
+        { word: 'pen', image: '🖊️', letters: ['p', 'e', 'n'], type: 'CVC' },
+        { word: 'cup', image: '☕', letters: ['c', 'u', 'p'], type: 'CVC' }
+      ],
+      medium: [
+        { word: 'frog', image: '🐸', letters: ['f', 'r', 'o', 'g'], type: 'CCVC' },
+        { word: 'crab', image: '🦀', letters: ['c', 'r', 'a', 'b'], type: 'CCVC' },
+        { word: 'star', image: '⭐', letters: ['s', 't', 'a', 'r'], type: 'CCVC' },
+        { word: 'flag', image: '🚩', letters: ['f', 'l', 'a', 'g'], type: 'CCVC' },
+        { word: 'lamp', image: '💡', letters: ['l', 'a', 'm', 'p'], type: 'CVCC' },
+        { word: 'tent', image: '⛺', letters: ['t', 'e', 'n', 't'], type: 'CVCC' },
+        { word: 'hand', image: '✋', letters: ['h', 'a', 'n', 'd'], type: 'CVCC' },
+        { word: 'jump', image: '🤸', letters: ['j', 'u', 'm', 'p'], type: 'CVCC' },
+        { word: 'desk', image: '🪑', letters: ['d', 'e', 's', 'k'], type: 'CVCC' },
+        { word: 'gift', image: '🎁', letters: ['g', 'i', 'f', 't'], type: 'CVCC' }
+      ],
+      hard: [
+        { word: 'plant', image: '🌱', letters: ['p', 'l', 'a', 'n', 't'], type: 'CCVCC' },
+        { word: 'trust', image: '🤝', letters: ['t', 'r', 'u', 's', 't'], type: 'CCVCC' },
+        { word: 'stamp', image: '📮', letters: ['s', 't', 'a', 'm', 'p'], type: 'CCVCC' },
+        { word: 'frost', image: '❄️', letters: ['f', 'r', 'o', 's', 't'], type: 'CCVCC' },
+        { word: 'grand', image: '👑', letters: ['g', 'r', 'a', 'n', 'd'], type: 'CCVCC' },
+        { word: 'clasp', image: '🔗', letters: ['c', 'l', 'a', 's', 'p'], type: 'CCVCC' },
+        { word: 'blast', image: '💥', letters: ['b', 'l', 'a', 's', 't'], type: 'CCVCC' },
+        { word: 'spend', image: '💰', letters: ['s', 'p', 'e', 'n', 'd'], type: 'CCVCC' },
+        { word: 'twist', image: '🌀', letters: ['t', 'w', 'i', 's', 't'], type: 'CCVCC' },
+        { word: 'crisp', image: '🍟', letters: ['c', 'r', 'i', 's', 'p'], type: 'CCVCC' }
+      ]
+    };
+
+    const sentenceBuilderData = {
+      easy: [
+        { sentence: 'I am happy', words: ['I', 'am', 'happy'], image: '😊' },
+        { sentence: 'The cat is big', words: ['The', 'cat', 'is', 'big'], image: '🐱' },
+        { sentence: 'She can run fast', words: ['She', 'can', 'run', 'fast'], image: '��‍♀️' },
+        { sentence: 'We like to play', words: ['We', 'like', 'to', 'play'], image: '🎮' },
+        { sentence: 'The sun is hot', words: ['The', 'sun', 'is', 'hot'], image: '☀️' },
+        { sentence: 'Dogs are fun', words: ['Dogs', 'are', 'fun'], image: '🐶' },
+        { sentence: 'I see a bird', words: ['I', 'see', 'a', 'bird'], image: '������' },
+        { sentence: 'He has a ball', words: ['He', 'has', 'a', 'ball'], image: '⚽' },
+        { sentence: 'We go to school', words: ['We', 'go', 'to', 'school'], image: '🏫' },
+        { sentence: 'My mom is nice', words: ['My', 'mom', 'is', 'nice'], image: '���' }
+      ],
+      medium: [
+        { sentence: 'The blue bird flies high', words: ['The', 'blue', 'bird', 'flies', 'high'], image: '🐦' },
+        { sentence: 'Children love reading books', words: ['Children', 'love', 'reading', 'books'], image: '📚' },
+        { sentence: 'My brother plays soccer well', words: ['My', 'brother', 'plays', 'soccer', 'well'], image: '⚽' },
+        { sentence: 'The teacher explains the lesson', words: ['The', 'teacher', 'explains', 'the', 'lesson'], image: '👨‍🏫' },
+        { sentence: 'We enjoy eating ice cream', words: ['We', 'enjoy', 'eating', 'ice', 'cream'], image: '🍦' },
+        { sentence: 'The puppy jumps over the fence', words: ['The', 'puppy', 'jumps', 'over', 'the', 'fence'], image: '🐕' },
+        { sentence: 'She paints beautiful pictures', words: ['She', 'paints', 'beautiful', 'pictures'], image: '🎨' },
+        { sentence: 'The rain makes flowers grow', words: ['The', 'rain', 'makes', 'flowers', 'grow'], image: '🌧️' },
+        { sentence: 'They walk to the park together', words: ['They', 'walk', 'to', 'the', 'park', 'together'], image: '🏞️' },
+        { sentence: 'My sister bakes delicious cookies', words: ['My', 'sister', 'bakes', 'delicious', 'cookies'], image: '🍪' }
+      ],
+      hard: [
+        { sentence: 'The curious students eagerly explored the museum', words: ['The', 'curious', 'students', 'eagerly', 'explored', 'the', 'museum'], image: '🏛️' },
+        { sentence: 'During summer vacation we traveled across the country', words: ['During', 'summer', 'vacation', 'we', 'traveled', 'across', 'the', 'country'], image: '🚗' },
+        { sentence: 'Scientists discovered an ancient fossil yesterday', words: ['Scientists', 'discovered', 'an', 'ancient', 'fossil', 'yesterday'], image: '���' },
+        { sentence: 'The magnificent waterfall cascaded down the mountain', words: ['The', 'magnificent', 'waterfall', 'cascaded', 'down', 'the', 'mountain'], image: '🏔️' },
+        { sentence: 'She carefully organized her collection of stamps', words: ['She', 'carefully', 'organized', 'her', 'collection', 'of', 'stamps'], image: '📮' },
+        { sentence: 'The orchestra performed beautifully at the concert', words: ['The', 'orchestra', 'performed', 'beautifully', 'at', 'the', 'concert'], image: '🎼' },
+        { sentence: 'My grandmother shares fascinating stories from her childhood', words: ['My', 'grandmother', 'shares', 'fascinating', 'stories', 'from', 'her', 'childhood'], image: '👵' },
+        { sentence: 'The brilliant inventor created an amazing machine', words: ['The', 'brilliant', 'inventor', 'created', 'an', 'amazing', 'machine'], image: '⚙️' },
+        { sentence: 'Dolphins communicate using sophisticated underwater sounds', words: ['Dolphins', 'communicate', 'using', 'sophisticated', 'underwater', 'sounds'], image: '🐬' },
+        { sentence: 'The library contains thousands of interesting books', words: ['The', 'library', 'contains', 'thousands', 'of', 'interesting', 'books'], image: '📖' }
+      ]
+    };
+
+    // Show game menu
+    function showGameMenu(category) {
+      playSound('click');
+      const modal = document.createElement('div');
+      modal.id = 'game-modal';
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      `;
+      
+      modal.innerHTML = `
+        <div style="background-color: white; border-radius: 16px; padding: 3rem; max-width: 600px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+          <h2 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 2rem; color: ${config.text_color}; text-align: center;">Choose a Game</h2>
+          
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <button onclick="startGame('vocabulary-maze')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 1.5rem; border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer; transition: transform 0.2s;">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">&#128683;</div>
+              Vocabulary Maze
+            </button>
+            
+            <button onclick="startGame('reading-quest')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 1.5rem; border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer; transition: transform 0.2s;">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">&#128214;</div>
+              Reading Comprehension Quest
+            </button>
+          </div>
+          
+          <button onclick="closeGameModal()" class="btn-primary body-font" style="background-color: white; color: ${config.accent_color}; padding: 1rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; margin-top: 2rem; width: 100%;">Close</button>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+    }
+
+    // Show word building menu
+    function showWordBuildingMenu() {
+      playSound('click');
+      const modal = document.createElement('div');
+      modal.id = 'game-modal';
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      `;
+      
+      modal.innerHTML = `
+        <div style="background-color: white; border-radius: 16px; padding: 3rem; max-width: 600px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+          <h2 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 2rem; color: ${config.text_color}; text-align: center;">Choose a Game</h2>
+          
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <button onclick="startGame('word-family')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 1.5rem; border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer; transition: transform 0.2s;">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">👨‍👩‍👧‍👦</div>
+              Word Family Match
+            </button>
+            
+            <button onclick="startGame('build-word')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 1.5rem; border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer; transition: transform 0.2s;">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🃏</div>
+              Build-the-Word Cards
+            </button>
+            
+            <button onclick="startGame('sentence-builder')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 1.5rem; border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer; transition: transform 0.2s;">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚂</div>
+              Sentence Builder Train
+            </button>
+          </div>
+          
+          <button onclick="closeGameModal()" class="btn-primary body-font" style="background-color: white; color: ${config.accent_color}; padding: 1rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; margin-top: 2rem; width: 100%;">Close</button>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+    }
+
+    // Show math games menu
+    function showMathGamesMenu() {
+      playSound('click');
+      const modal = document.createElement('div');
+      modal.id = 'game-modal';
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      `;
+      
+      modal.innerHTML = `
+        <div style="background-color: white; border-radius: 16px; padding: 3rem; max-width: 600px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+          <h2 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 2rem; color: ${config.text_color}; text-align: center;">Choose a Math Game</h2>
+          
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <button onclick="startGame('number-sense')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 1.5rem; border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer; transition: transform 0.2s;">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔢</div>
+              Number Sense Builder
+            </button>
+            
+            <button onclick="startGame('problem-solving')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 1.5rem; border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer; transition: transform 0.2s;">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧮</div>
+              Problem-Solving Challenge
+            </button>
+            
+            <button onclick="startGame('pattern-recognition')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 1.5rem; border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer; transition: transform 0.2s;">
+              <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧩</div>
+              Pattern Recognition Puzzle
+            </button>
+          </div>
+          
+          <button onclick="closeGameModal()" class="btn-primary body-font" style="background-color: white; color: ${config.accent_color}; padding: 1rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; margin-top: 2rem; width: 100%;">Close</button>
+        </div>
+      `;
+      
+      document.body.appendChild(modal);
+    }
+
+    function closeGameModal() {
+      playSound('click');
+      const modal = document.getElementById('game-modal');
+      if (modal) modal.remove();
+    }
+
+    // Start game with difficulty selection
+    function startGame(gameType) {
+      playSound('click');
+      const modal = document.createElement('div');
+      modal.id = 'game-modal';
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      `;
+      document.body.appendChild(modal);
+      
+      const gameTitle = gameType === 'vocabulary-maze' ? '🎯 Vocabulary Maze' : 
+                        gameType === 'reading-quest' ? '📖 Reading Quest' :
+                        gameType === 'word-family' ? '👨‍👩‍👧‍👦 Word Family Match' :
+                        gameType === 'build-word' ? '🃏 Build-the-Word Cards' :
+                        gameType === 'sentence-builder' ? '🚂 Sentence Builder Train' :
+                        gameType === 'number-sense' ? '🔢 Number Sense Builder' :
+                        gameType === 'problem-solving' ? '🧮 Problem-Solving Challenge' :
+                        '🧩 Pattern Recognition Puzzle';
+      
+      modal.innerHTML = `
+        <div style="background-color: white; border-radius: 16px; padding: 3rem; max-width: 600px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.3); animation: fadeIn 0.3s;">
+          <h2 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color}; text-align: center;">
+            ${gameTitle}
+          </h2>
+          <p class="body-font" style="text-align: center; color: ${config.text_color}; opacity: 0.8; margin-bottom: 2rem;">Choose your difficulty level</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <button onclick="playGame('${gameType}', 'easy')" class="btn-primary body-font" style="background-color: #90EE90; color: ${config.text_color}; padding: 1.5rem; border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⭐</div>
+              Easy ${gameType === 'word-family' || gameType === 'build-word' || gameType === 'sentence-builder' ? '(5 rounds)' : '(10 rounds)'}
+            </button>
+            
+            <button onclick="playGame('${gameType}', 'medium')" class="btn-primary body-font" style="background-color: #FFD700; color: ${config.text_color}; padding: 1.5rem; border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🌟</div>
+              Medium ${gameType === 'word-family' || gameType === 'build-word' || gameType === 'sentence-builder' ? '(7 rounds)' : '(10 rounds)'}
+            </button>
+            
+            <button onclick="playGame('${gameType}', 'hard')" class="btn-primary body-font" style="background-color: #FF6B6B; color: white; padding: 1.5rem; border: none; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🔥</div>
+              Hard ${gameType === 'word-family' || gameType === 'build-word' || gameType === 'sentence-builder' ? '(10 rounds)' : '(10 rounds)'}
+            </button>
+          </div>
+          
+          <button onclick="${gameType === 'word-family' || gameType === 'build-word' || gameType === 'sentence-builder' ? 'showWordBuildingMenu()' : 'closeGameModal()'}" class="btn-primary body-font" style="background-color: white; color: ${config.accent_color}; padding: 1rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; margin-top: 2rem; width: 100%;">Back</button>
+        </div>
+      `;
+    }
+
+    // Math Games Data
+    const numberSenseQuestions = {
+      easy: [
+        { question: 'Which number is bigger?', options: ['3', '7', '5', '2'], correct: 1, visual: '🔵', type: 'compare' },
+        { question: 'Count the stars! How many are there?', visual: '⭐⭐⭐⭐⭐', options: ['3', '4', '5', '6'], correct: 2, type: 'count' },
+        { question: 'Which number comes after 5?', options: ['4', '6', '7', '3'], correct: 1, type: 'sequence' },
+        { question: 'Which number is the smallest?', options: ['8', '3', '6', '9'], correct: 1, type: 'compare' },
+        { question: 'Count the apples! How many?', visual: '🍎🍎🍎🍎', options: ['3', '4', '5', '2'], correct: 1, type: 'count' },
+        { question: 'Which number comes before 4?', options: ['5', '3', '2', '6'], correct: 1, type: 'sequence' },
+        { question: 'Which number is bigger?', options: ['2', '9', '4', '5'], correct: 1, type: 'compare' },
+        { question: 'Count the hearts! How many?', visual: '❤️❤️❤️❤️❤️❤️', options: ['5', '6', '7', '4'], correct: 1, type: 'count' },
+        { question: 'What number comes between 7 and 9?', options: ['6', '8', '10', '7'], correct: 1, type: 'sequence' },
+        { question: 'Which is the largest number?', options: ['5', '2', '8', '4'], correct: 2, type: 'compare' }
+      ],
+      medium: [
+        { question: 'What is 15 + 8?', options: ['21', '23', '25', '22'], correct: 1, type: 'addition' },
+        { question: 'Count by 5s: 5, 10, 15, ___', options: ['18', '20', '25', '30'], correct: 1, type: 'skip-count' },
+        { question: 'What is 24 - 9?', options: ['13', '15', '17', '14'], correct: 1, type: 'subtraction' },
+        { question: 'Which number is closer to 50?', options: ['35', '48', '60', '28'], correct: 1, type: 'compare' },
+        { question: 'What comes next? 12, 15, 18, ___', options: ['20', '21', '22', '19'], correct: 1, type: 'pattern' },
+        { question: 'What is 7 × 3?', options: ['18', '21', '24', '20'], correct: 1, type: 'multiplication' },
+        { question: 'Round 38 to the nearest ten', options: ['30', '40', '35', '50'], correct: 1, type: 'rounding' },
+        { question: 'What is 45 ÷ 5?', options: ['7', '9', '8', '10'], correct: 1, type: 'division' },
+        { question: 'What is half of 26?', options: ['12', '13', '14', '11'], correct: 1, type: 'halving' },
+        { question: 'Count by 10s: 20, 30, 40, ___', options: ['45', '50', '60', '55'], correct: 1, type: 'skip-count' }
+      ],
+      hard: [
+        { question: 'What is 347 + 286?', options: ['623', '633', '643', '653'], correct: 1, type: 'addition' },
+        { question: 'What is 15% of 80?', options: ['10', '12', '15', '8'], correct: 1, type: 'percentage' },
+        { question: 'What is 144 ÷ 12?', options: ['11', '12', '13', '14'], correct: 1, type: 'division' },
+        { question: 'What is the next prime number after 17?', options: ['18', '19', '20', '21'], correct: 1, type: 'primes' },
+        { question: 'What is 23 × 16?', options: ['358', '368', '378', '388'], correct: 1, type: 'multiplication' },
+        { question: 'What is the square root of 121?', options: ['10', '11', '12', '13'], correct: 1, type: 'roots' },
+        { question: 'What is 5³ (5 cubed)?', options: ['115', '125', '135', '145'], correct: 1, type: 'powers' },
+        { question: 'What is 2/5 as a decimal?', options: ['0.3', '0.4', '0.5', '0.6'], correct: 1, type: 'decimals' },
+        { question: 'What is 756 - 489?', options: ['257', '267', '277', '287'], correct: 1, type: 'subtraction' },
+        { question: 'What is the LCM of 6 and 8?', options: ['20', '24', '28', '32'], correct: 1, type: 'lcm' }
+      ]
+    };
+
+    const problemSolvingQuestions = {
+      easy: [
+        { problem: 'Sara has 3 apples. Her friend gives her 2 more apples. How many apples does Sara have now?', visual: '🍎🍎🍎 + 🍎🍎', options: ['4', '5', '6', '7'], correct: 1 },
+        { problem: 'There are 8 birds on a tree. 3 birds fly away. How many birds are left?', visual: '🐦🐦🐦🐦🐦🐦🐦🐦 - 🐦🐦🐦', options: ['4', '5', '6', '7'], correct: 1 },
+        { problem: 'Tom has 6 toy cars. He gets 4 more for his birthday. How many toy cars does he have?', visual: '🚗🚗🚗🚗🚗🚗 + 🚗🚗🚗🚗', options: ['8', '9', '10', '11'], correct: 2 },
+        { problem: 'There are 7 cookies on a plate. Mom eats 2 cookies. How many cookies are left?', visual: '🍪🍪����🍪���🍪🍪', options: ['4', '5', '6', '7'], correct: 1 },
+        { problem: 'Lisa has 4 pencils. She buys 5 more pencils. How many pencils does she have now?', visual: '✏️✏️✏️✏️ + ✏️✏️✏️✏️✏️', options: ['7', '8', '9', '10'], correct: 2 },
+        { problem: 'There are 9 balloons. 4 balloons pop. How many balloons are left?', visual: '🎈🎈🎈🎈🎈🎈🎈🎈🎈', options: ['4', '5', '6', '7'], correct: 1 },
+        { problem: 'Jack has 2 dogs and 3 cats. How many pets does Jack have?', visual: '🐕🐕 + 🐱🐱🐱', options: ['4', '5', '6', '7'], correct: 1 },
+        { problem: 'There are 10 flowers in the garden. Emma picks 3 flowers. How many flowers are left?', visual: '🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸', options: ['6', '7', '8', '9'], correct: 1 },
+        { problem: 'Ben has 5 stickers. His sister gives him 3 more. How many stickers does Ben have?', visual: '⭐⭐⭐⭐⭐ + ⭐⭐⭐', options: ['6', '7', '8', '9'], correct: 2 },
+        { problem: 'There are 6 cupcakes. Children eat 2 cupcakes. How many cupcakes are left?', visual: '🧁🧁��🧁🧁🧁', options: ['3', '4', '5', '6'], correct: 1 }
+      ],
+      medium: [
+        { problem: 'A book costs $12 and a pen costs $3. How much do they cost together?', visual: '📚 $12 + 🖊️ $3', options: ['$13', '$14', '$15', '$16'], correct: 2 },
+        { problem: 'There are 24 students in a class. Half of them are girls. How many girls are there?', visual: '👥👥👥 = 24 students', options: ['10', '11', '12', '13'], correct: 2 },
+        { problem: 'Mike has 35 marbles. He gives 17 marbles to his friend. How many marbles does Mike have left?', visual: '⚪ 35 marbles', options: ['16', '17', '18', '19'], correct: 2 },
+        { problem: 'A train travels 45 km in one hour. How far will it travel in 3 hours?', visual: '🚂 45 km/hour', options: ['125', '130', '135', '140'], correct: 2 },
+        { problem: 'Sarah buys 4 boxes of crayons. Each box has 8 crayons. How many crayons does she have?', visual: '��📦📦📦 (8 each)', options: ['30', '32', '34', '36'], correct: 1 },
+        { problem: 'There are 56 candies to share equally among 8 children. How many candies does each child get?', visual: '🍬 56 candies ÷ 8 kids', options: ['6', '7', '8', '9'], correct: 1 },
+        { problem: 'A pizza is cut into 8 slices. Tom eats 3 slices. What fraction of the pizza is left?', visual: '🍕 = 8 slices', options: ['4/8', '5/8', '6/8', '7/8'], correct: 1 },
+        { problem: 'Emma saves $5 every week. How much money will she have after 6 weeks?', visual: '💰 $5 per week', options: ['$25', '$30', '$35', '$40'], correct: 1 },
+        { problem: 'A rectangle has a length of 12 cm and width of 5 cm. What is its perimeter?', visual: '▭ 12 cm × 5 cm', options: ['32 cm', '34 cm', '36 cm', '38 cm'], correct: 1 },
+        { problem: 'There are 72 books on 9 shelves. If each shelf has the same number of books, how many books are on each shelf?', visual: '📚 72 books ÷ 9 shelves', options: ['7', '8', '9', '10'], correct: 1 }
+      ],
+      hard: [
+        { problem: 'A store sells shirts for $25 each. During a sale, they offer 20% off. What is the sale price?', visual: '👕 $25 - 20%', options: ['$18', '$19', '$20', '$21'], correct: 2 },
+        { problem: 'A car travels 240 km using 15 liters of fuel. How many km per liter does it get?', visual: '🚗 240 km ÷ 15 L', options: ['14', '15', '16', '17'], correct: 2 },
+        { problem: 'Sarah invests $500 at 4% simple interest per year. How much interest will she earn in 3 years?', visual: '💰 $500 × 4% × 3 years', options: ['$50', '$55', '$60', '$65'], correct: 2 },
+        { problem: 'A rectangular garden is 15 m long and 8 m wide. What is its area in square meters?', visual: '🌳 15 m × 8 m', options: ['110', '115', '120', '125'], correct: 2 },
+        { problem: 'A recipe needs 2/3 cup of sugar for 12 cookies. How much sugar for 18 cookies?', visual: '🍪 2/3 cup for 12 cookies', options: ['3/4 cup', '1 cup', '1 1/4 cup', '1 1/3 cup'], correct: 1 },
+        { problem: 'If 5 workers can complete a job in 12 days, how many days will 3 workers take?', visual: '👷 5 workers = 12 days', options: ['18', '20', '22', '24'], correct: 1 },
+        { problem: 'A cylinder has a radius of 7 cm and height of 10 cm. What is its volume? (Use π ≈ 3.14)', visual: '⭕ r=7cm, h=10cm', options: ['1518 cm³', '1538 cm³', '1558 cm³', '1578 cm³'], correct: 1 },
+        { problem: 'The average of 5 numbers is 42. If one number is removed, the average becomes 40. What was the removed number?', visual: '📊 Avg of 5 = 42', options: ['48', '50', '52', '54'], correct: 1 },
+        { problem: 'A train 180 m long crosses a platform 220 m long in 20 seconds. What is the speed of the train in m/s?', visual: '🚂 180m + 220m in 20s', options: ['18 m/s', '20 m/s', '22 m/s', '24 m/s'], correct: 1 },
+        { problem: 'In a class of 40 students, 60% passed in Math and 70% passed in Science. If 80% passed in at least one subject, how many passed in both?', visual: '👨‍🎓 40 students total', options: ['18', '20', '22', '24'], correct: 1 }
+      ]
+    };
+
+    const patternRecognitionQuestions = {
+      easy: [
+        { pattern: '🔴 🔵 🔴 🔵 🔴 ___', options: ['🔴', '🔵', '🟢', '🟡'], correct: 1, type: 'color' },
+        { pattern: '2, 4, 6, 8, ___', options: ['9', '10', '11', '12'], correct: 1, type: 'number' },
+        { pattern: '⭐ ⭐⭐ ⭐⭐⭐ ___', options: ['⭐', '⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'], correct: 2, type: 'growing' },
+        { pattern: '🍎 🍌 🍎 🍌 ___', options: ['🍎', '🍌', '🍊', '🍇'], correct: 0, type: 'shape' },
+        { pattern: '1, 2, 3, 1, 2, 3, ___', options: ['1', '2', '3', '4'], correct: 0, type: 'repeat' },
+        { pattern: '🟦 🟦 🟨 🟦 🟦 🟨 ___', options: ['🟦', '🟨', '🟩', '🟥'], correct: 0, type: 'AB pattern' },
+        { pattern: '5, 10, 15, 20, ___', options: ['22', '23', '24', '25'], correct: 3, type: 'skip-count' },
+        { pattern: '😊 😢 😊 😢 ___', options: ['😊', '😢', '😂', '😡'], correct: 0, type: 'emoji' },
+        { pattern: '△ ○ △ ○ ___', options: ['△', '○', '□', '◇'], correct: 0, type: 'shape' },
+        { pattern: '10, 9, 8, 7, ___', options: ['5', '6', '7', '8'], correct: 1, type: 'descending' }
+      ],
+      medium: [
+        { pattern: '3, 6, 9, 12, ___', options: ['13', '14', '15', '16'], correct: 2, type: 'multiples' },
+        { pattern: '🔵🔵 🟢 🔵🔵 🟢 ___', options: ['🔵', '🔵🔵', '🟢', '🟡'], correct: 1, type: 'AAB pattern' },
+        { pattern: '1, 4, 9, 16, ___', options: ['20', '21', '24', '25'], correct: 3, type: 'squares' },
+        { pattern: '2, 5, 8, 11, ___', options: ['12', '13', '14', '15'], correct: 2, type: '+3 pattern' },
+        { pattern: '100, 90, 80, 70, ___', options: ['50', '55', '60', '65'], correct: 2, type: 'by tens' },
+        { pattern: '⭐⭐⭐ ⭐⭐ ⭐ ___', options: ['⭐', '⭐⭐', '⭐⭐⭐', 'none'], correct: 3, type: 'decreasing' },
+        { pattern: '5, 10, 20, 40, ___', options: ['60', '70', '80', '90'], correct: 2, type: 'doubling' },
+        { pattern: '🟥 🟧 🟨 🟥 🟧 🟨 ___', options: ['🟥', '🟧', '🟨', '🟩'], correct: 0, type: 'ABC repeat' },
+        { pattern: '1, 1, 2, 3, 5, 8, ___', options: ['11', '12', '13', '14'], correct: 2, type: 'Fibonacci' },
+        { pattern: '64, 32, 16, 8, ___', options: ['2', '3', '4', '5'], correct: 2, type: 'halving' }
+      ],
+      hard: [
+        { pattern: '2, 6, 12, 20, 30, ___', options: ['40', '42', '44', '46'], correct: 1, type: 'n(n+1)' },
+        { pattern: '1, 8, 27, 64, ___', options: ['100', '115', '125', '135'], correct: 2, type: 'cubes' },
+        { pattern: '3, 7, 15, 31, ___', options: ['59', '61', '63', '65'], correct: 2, type: '2n+1' },
+        { pattern: '1, 3, 6, 10, 15, ___', options: ['19', '20', '21', '22'], correct: 2, type: 'triangular' },
+        { pattern: '2, 3, 5, 7, 11, ___', options: ['12', '13', '14', '15'], correct: 1, type: 'primes' },
+        { pattern: '��🔴🔴 🔵🔵 🟢 ����🔴🔴 🔵🔵 ___', options: ['🔴', '🔵', '🟢', '🟡'], correct: 2, type: 'complex' },
+        { pattern: '1, 4, 13, 40, 121, ___', options: ['342', '352', '362', '372'], correct: 2, type: '3n+1' },
+        { pattern: '128, 64, 32, 16, ___', options: ['6', '7', '8', '9'], correct: 2, type: 'powers of 2' },
+        { pattern: '5, 12, 26, 54, ___', options: ['100', '106', '110', '116'], correct: 2, type: '2n+2' },
+        { pattern: '1, 1, 2, 6, 24, ___', options: ['100', '110', '120', '130'], correct: 2, type: 'factorial' }
+      ]
+    };
+
+    // Play the actual game
+    function playGame(gameType, difficulty) {
+      playSound('click');
+      
+      // Close existing modal first
+      const existingModal = document.getElementById('game-modal');
+      if (existingModal) {
+        existingModal.remove();
+      }
+      
+      // Create fresh modal
+      const modal = document.createElement('div');
+      modal.id = 'game-modal';
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        overflow-y: auto;
+      `;
+      document.body.appendChild(modal);
+      
+      // Route to appropriate game
+      if (gameType === 'word-family') {
+        playWordFamilyGame(difficulty, modal);
+      } else if (gameType === 'build-word') {
+        playBuildWordGame(difficulty, modal);
+      } else if (gameType === 'sentence-builder') {
+        playSentenceBuilderGame(difficulty, modal);
+      } else if (gameType === 'vocabulary-maze' || gameType === 'reading-quest') {
+        playVocabOrReadingGame(gameType, difficulty, modal);
+      } else if (gameType === 'number-sense') {
+        playNumberSenseGame(difficulty, modal);
+      } else if (gameType === 'problem-solving') {
+        playProblemSolvingGame(difficulty, modal);
+      } else if (gameType === 'pattern-recognition') {
+        playPatternRecognitionGame(difficulty, modal);
+      }
+    }
+
+    // Number Sense Builder Game
+    function playNumberSenseGame(difficulty, modal) {
+      const questions = shuffleArray(numberSenseQuestions[difficulty]);
+      let currentRound = 0;
+      let score = 0;
+      
+      function showQuestion() {
+        if (currentRound >= questions.length) {
+          showGameResults(score, questions.length, 'number-sense', difficulty, modal);
+          return;
+        }
+        
+        const q = questions[currentRound];
+        const shuffledOptions = shuffleArray(q.options.map((opt, idx) => ({ text: opt, originalIdx: idx })));
+        const correctPosition = shuffledOptions.findIndex(opt => opt.originalIdx === q.correct);
+        
+        modal.innerHTML = `
+          <div style="position: relative; background-color: white; border-radius: 16px; padding: 3rem; max-width: 700px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+            <button onclick="closeGameModal()" class="btn-primary body-font" style="position: absolute; top: 1rem; right: 1rem; background-color: #FF6B6B; color: white; padding: 0.5rem; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1;">✕</button>
+            
+            <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; padding-right: 3rem;">
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Round ${currentRound + 1}/${questions.length}</span>
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Score: ${score} 🌟</span>
+            </div>
+            
+            <h3 class="heading-font" style="font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem; color: ${config.text_color}; text-align: center;">${q.question}</h3>
+            
+            ${q.visual ? `<div style="font-size: 3rem; text-align: center; margin-bottom: 2rem;">${q.visual}</div>` : ''}
+            
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+              ${shuffledOptions.map((option, idx) => `
+                <button onclick="checkMathAnswer(${idx}, ${correctPosition}, ${currentRound}, ${score})" class="btn-primary body-font answer-btn" style="background-color: ${config.background_color}; color: ${config.text_color}; padding: 2rem; border: 3px solid ${config.accent_color}; border-radius: 12px; font-size: 2rem; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+                  ${option.text}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+      
+      window.checkMathAnswer = function(selectedIdx, correctIdx, round, currentScore) {
+        const buttons = document.querySelectorAll('.answer-btn');
+        buttons.forEach(btn => btn.style.pointerEvents = 'none');
+        
+        if (selectedIdx === correctIdx) {
+          playSound('correct');
+          buttons[selectedIdx].style.backgroundColor = '#90EE90';
+          buttons[selectedIdx].style.borderColor = '#228B22';
+          buttons[selectedIdx].innerHTML += ' ✓';
+          score++;
+          
+          // Show confetti effect
+          for (let i = 0; i < 20; i++) {
+            setTimeout(() => {
+              const confetti = document.createElement('div');
+              confetti.textContent = ['🎉', '⭐', '✨', '🌟'][Math.floor(Math.random() * 4)];
+              confetti.style.cssText = `
+                position: fixed;
+                left: ${Math.random() * 100}%;
+                top: -50px;
+                font-size: 2rem;
+                pointer-events: none;
+                z-index: 10000;
+                animation: fall 2s linear forwards;
+              `;
+              document.body.appendChild(confetti);
+              setTimeout(() => confetti.remove(), 2000);
+            }, i * 50);
+          }
+        } else {
+          playSound('wrong');
+          buttons[selectedIdx].style.backgroundColor = '#FF6B6B';
+          buttons[selectedIdx].style.borderColor = '#DC143C';
+          buttons[selectedIdx].innerHTML += ' ✗';
+          buttons[correctIdx].style.backgroundColor = '#90EE90';
+          buttons[correctIdx].style.borderColor = '#228B22';
+          buttons[correctIdx].innerHTML += ' ✓';
+          
+          // Shake animation
+          buttons[selectedIdx].style.animation = 'shake 0.5s';
+        }
+        
+        setTimeout(() => {
+          currentRound++;
+          showQuestion();
+        }, 1800);
+      };
+      
+      showQuestion();
+    }
+
+    // Problem-Solving Challenge Game
+    function playProblemSolvingGame(difficulty, modal) {
+      const questions = shuffleArray(problemSolvingQuestions[difficulty]);
+      let currentRound = 0;
+      let score = 0;
+      
+      function showQuestion() {
+        if (currentRound >= questions.length) {
+          showGameResults(score, questions.length, 'problem-solving', difficulty, modal);
+          return;
+        }
+        
+        const q = questions[currentRound];
+        const shuffledOptions = shuffleArray(q.options.map((opt, idx) => ({ text: opt, originalIdx: idx })));
+        const correctPosition = shuffledOptions.findIndex(opt => opt.originalIdx === q.correct);
+        
+        modal.innerHTML = `
+          <div style="position: relative; background-color: white; border-radius: 16px; padding: 3rem; max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+            <button onclick="closeGameModal()" class="btn-primary body-font" style="position: absolute; top: 1rem; right: 1rem; background-color: #FF6B6B; color: white; padding: 0.5rem; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; z-index: 10;">✕</button>
+            
+            <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; padding-right: 3rem;">
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Round ${currentRound + 1}/${questions.length}</span>
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Score: ${score} 🏆</span>
+            </div>
+            
+            <div style="background-color: #FFF9E6; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid ${config.accent_color};">
+              <p class="body-font" style="font-size: 1.25rem; line-height: 1.8; color: ${config.text_color}; margin-bottom: 1rem;">${q.problem}</p>
+              ${q.visual ? `<div style="font-size: 2rem; text-align: center; padding: 1rem; background-color: white; border-radius: 8px;">${q.visual}</div>` : ''}
+            </div>
+            
+            <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: ${config.text_color}; text-align: center;">���� Choose your answer:</h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              ${shuffledOptions.map((option, idx) => `
+                <button onclick="checkProblemAnswer(${idx}, ${correctPosition}, ${currentRound}, ${score})" class="btn-primary body-font answer-btn" style="background-color: ${config.background_color}; color: ${config.text_color}; padding: 1.5rem; border: 3px solid ${config.accent_color}; border-radius: 12px; font-size: 1.25rem; font-weight: 500; cursor: pointer; text-align: center; transition: all 0.2s;">
+                  ${option.text}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+      
+      window.checkProblemAnswer = function(selectedIdx, correctIdx, round, currentScore) {
+        const buttons = document.querySelectorAll('.answer-btn');
+        buttons.forEach(btn => btn.style.pointerEvents = 'none');
+        
+        if (selectedIdx === correctIdx) {
+          playSound('correct');
+          buttons[selectedIdx].style.backgroundColor = '#90EE90';
+          buttons[selectedIdx].style.borderColor = '#228B22';
+          buttons[selectedIdx].innerHTML = '✅ ' + buttons[selectedIdx].innerHTML;
+          score++;
+          
+          // Celebratory stars
+          for (let i = 0; i < 15; i++) {
+            setTimeout(() => {
+              const star = document.createElement('div');
+              star.textContent = '⭐';
+              star.style.cssText = `
+                position: fixed;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 50}%;
+                font-size: ${1 + Math.random() * 2}rem;
+                pointer-events: none;
+                z-index: 10000;
+                animation: sparkle 1s ease-out forwards;
+              `;
+              document.body.appendChild(star);
+              setTimeout(() => star.remove(), 1000);
+            }, i * 40);
+          }
+        } else {
+          playSound('wrong');
+          buttons[selectedIdx].style.backgroundColor = '#FF6B6B';
+          buttons[selectedIdx].style.borderColor = '#DC143C';
+          buttons[selectedIdx].innerHTML = '❌ ' + buttons[selectedIdx].innerHTML;
+          buttons[correctIdx].style.backgroundColor = '#90EE90';
+          buttons[correctIdx].style.borderColor = '#228B22';
+          buttons[correctIdx].innerHTML = '✅ ' + buttons[correctIdx].innerHTML;
+        }
+        
+        setTimeout(() => {
+          currentRound++;
+          showQuestion();
+        }, 2000);
+      };
+      
+      showQuestion();
+    }
+
+    // Pattern Recognition Puzzle Game
+    function playPatternRecognitionGame(difficulty, modal) {
+      const questions = shuffleArray(patternRecognitionQuestions[difficulty]);
+      let currentRound = 0;
+      let score = 0;
+      
+      function showQuestion() {
+        if (currentRound >= questions.length) {
+          showGameResults(score, questions.length, 'pattern-recognition', difficulty, modal);
+          return;
+        }
+        
+        const q = questions[currentRound];
+        const shuffledOptions = shuffleArray(q.options.map((opt, idx) => ({ text: opt, originalIdx: idx })));
+        const correctPosition = shuffledOptions.findIndex(opt => opt.originalIdx === q.correct);
+        
+        modal.innerHTML = `
+          <div style="position: relative; background-color: white; border-radius: 16px; padding: 3rem; max-width: 800px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+            <button onclick="closeGameModal()" class="btn-primary body-font" style="position: absolute; top: 1rem; right: 1rem; background-color: #FF6B6B; color: white; padding: 0.5rem; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1;">✕</button>
+            
+            <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; padding-right: 3rem;">
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Round ${currentRound + 1}/${questions.length}</span>
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Score: ${score} 🧩</span>
+            </div>
+            
+            <h3 class="heading-font" style="font-size: 1.75rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color}; text-align: center;">🧩 Complete the Pattern</h3>
+            <p class="body-font" style="text-align: center; color: ${config.text_color}; opacity: 0.8; margin-bottom: 2rem;">What comes next?</p>
+            
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 12px; margin-bottom: 2rem; text-align: center;">
+              <div class="heading-font" style="font-size: 2rem; color: white; font-weight: 600; letter-spacing: 2px;">
+                ${q.pattern}
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+              ${shuffledOptions.map((option, idx) => `
+                <button onclick="checkPatternAnswer(${idx}, ${correctPosition}, ${currentRound}, ${score})" class="btn-primary body-font answer-btn" style="background-color: ${config.background_color}; color: ${config.text_color}; padding: 2rem; border: 3px solid ${config.accent_color}; border-radius: 12px; font-size: 1.75rem; font-weight: 600; cursor: pointer; transition: all 0.2s; min-height: 100px; display: flex; align-items: center; justify-content: center;">
+                  ${option.text}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+      
+      window.checkPatternAnswer = function(selectedIdx, correctIdx, round, currentScore) {
+        const buttons = document.querySelectorAll('.answer-btn');
+        buttons.forEach(btn => btn.style.pointerEvents = 'none');
+        
+        if (selectedIdx === correctIdx) {
+          playSound('correct');
+          buttons[selectedIdx].style.backgroundColor = '#90EE90';
+          buttons[selectedIdx].style.borderColor = '#228B22';
+          buttons[selectedIdx].style.transform = 'scale(1.1)';
+          score++;
+          
+          // Puzzle pieces falling effect
+          for (let i = 0; i < 10; i++) {
+            setTimeout(() => {
+              const piece = document.createElement('div');
+              piece.textContent = '🧩';
+              piece.style.cssText = `
+                position: fixed;
+                left: ${Math.random() * 100}%;
+                top: -50px;
+                font-size: ${1.5 + Math.random()}rem;
+                pointer-events: none;
+                z-index: 10000;
+                animation: fall 3s linear forwards;
+              `;
+              document.body.appendChild(piece);
+              setTimeout(() => piece.remove(), 3000);
+            }, i * 100);
+          }
+        } else {
+          playSound('wrong');
+          buttons[selectedIdx].style.backgroundColor = '#FF6B6B';
+          buttons[selectedIdx].style.borderColor = '#DC143C';
+          buttons[selectedIdx].style.animation = 'shake 0.5s';
+          buttons[correctIdx].style.backgroundColor = '#90EE90';
+          buttons[correctIdx].style.borderColor = '#228B22';
+          buttons[correctIdx].style.transform = 'scale(1.1)';
+        }
+        
+        setTimeout(() => {
+          currentRound++;
+          showQuestion();
+        }, 2000);
+      };
+      
+      showQuestion();
+    }
+
+    // Word Family Match Game
+    function playWordFamilyGame(difficulty, modal) {
+      const rounds = difficulty === 'easy' ? 5 : difficulty === 'medium' ? 7 : 10;
+      const families = shuffleArray(wordFamilies[difficulty]).slice(0, rounds);
+      let currentRound = 0;
+      let score = 0;
+      
+      function showQuestion() {
+        if (currentRound >= families.length) {
+          showGameResults(score, families.length, 'word-family', difficulty, modal);
+          return;
+        }
+        
+        const family = families[currentRound];
+        const correctWords = shuffleArray(family.words).slice(0, 4);
+        
+        // Generate distractor words from other families
+        const otherFamilies = wordFamilies[difficulty].filter(f => f.family !== family.family);
+        const distractors = [];
+        for (let i = 0; i < 4 && otherFamilies.length > 0; i++) {
+          const randomFamily = otherFamilies[Math.floor(Math.random() * otherFamilies.length)];
+          const randomWord = randomFamily.words[Math.floor(Math.random() * randomFamily.words.length)];
+          if (!distractors.includes(randomWord) && !correctWords.includes(randomWord)) {
+            distractors.push(randomWord);
+          }
+        }
+        
+        const allWords = shuffleArray([...correctWords, ...distractors]);
+        let selectedWords = [];
+        
+        modal.innerHTML = `
+          <div style="position: relative; background-color: white; border-radius: 16px; padding: 3rem; max-width: 800px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto;">
+            <button onclick="closeGameModal()" class="btn-primary body-font" style="position: absolute; top: 1rem; right: 1rem; background-color: #FF6B6B; color: white; padding: 0.5rem; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; z-index: 10;">✕</button>
+            
+            <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; padding-right: 3rem;">
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Round ${currentRound + 1}/${families.length}</span>
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Score: ${score}</span>
+            </div>
+            
+            <h3 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color}; text-align: center;">👨‍👩‍👧‍👦 Word Family Match</h3>
+            <p class="body-font" style="text-align: center; margin-bottom: 1rem; color: ${config.text_color}; opacity: 0.8;">Select all words that belong to the <strong style="color: ${config.accent_color}; font-size: 1.5rem;">${family.family}</strong> family</p>
+            <p class="body-font" style="text-align: center; margin-bottom: 2rem; color: ${config.text_color}; opacity: 0.7; font-size: 0.9rem;">You need to find ${correctWords.length} words!</p>
+            
+            <div id="word-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+              ${allWords.map((word, idx) => `
+                <button id="word-btn-${idx}" class="btn-primary body-font word-btn" style="background-color: ${config.background_color}; color: ${config.text_color}; padding: 1.5rem 1rem; border: 3px solid ${config.accent_color}; border-radius: 12px; font-size: 1.25rem; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+                  ${word}
+                </button>
+              `).join('')}
+            </div>
+            
+            <button id="submit-btn" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1.125rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.5;" disabled>Submit Answer (0/${correctWords.length} selected)</button>
+          </div>
+        `;
+        
+        // Set up click handlers after HTML is rendered
+        allWords.forEach((word, idx) => {
+          const btn = document.getElementById(`word-btn-${idx}`);
+          btn.addEventListener('click', function() {
+            playSound('click');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            if (selectedWords.includes(word)) {
+              selectedWords = selectedWords.filter(w => w !== word);
+              btn.style.backgroundColor = config.background_color;
+              btn.style.borderColor = config.accent_color;
+              btn.style.color = config.text_color;
+            } else {
+              selectedWords.push(word);
+              btn.style.backgroundColor = config.accent_color;
+              btn.style.borderColor = config.accent_color;
+              btn.style.color = 'white';
+            }
+            
+            submitBtn.textContent = `Submit Answer (${selectedWords.length}/${correctWords.length} selected)`;
+            submitBtn.disabled = selectedWords.length === 0;
+            submitBtn.style.opacity = selectedWords.length === 0 ? '0.5' : '1';
+          });
+        });
+        
+        // Submit button handler
+        document.getElementById('submit-btn').addEventListener('click', function() {
+          const buttons = document.querySelectorAll('.word-btn');
+          buttons.forEach(btn => btn.style.pointerEvents = 'none');
+          this.style.pointerEvents = 'none';
+          
+          const isCorrect = selectedWords.length === correctWords.length &&
+                           selectedWords.every(w => correctWords.includes(w));
+          
+          if (isCorrect) {
+            playSound('correct');
+            score++;
+            allWords.forEach((word, idx) => {
+              const btn = document.getElementById(`word-btn-${idx}`);
+              if (correctWords.includes(word)) {
+                btn.style.backgroundColor = '#90EE90';
+                btn.style.borderColor = '#228B22';
+                btn.style.color = config.text_color;
+              }
+            });
+          } else {
+            playSound('wrong');
+            allWords.forEach((word, idx) => {
+              const btn = document.getElementById(`word-btn-${idx}`);
+              if (correctWords.includes(word)) {
+                btn.style.backgroundColor = '#90EE90';
+                btn.style.borderColor = '#228B22';
+                btn.style.color = config.text_color;
+              } else if (selectedWords.includes(word)) {
+                btn.style.backgroundColor = '#FF6B6B';
+                btn.style.borderColor = '#DC143C';
+                btn.style.color = 'white';
+              }
+            });
+          }
+          
+          setTimeout(() => {
+            currentRound++;
+            selectedWords = [];
+            showQuestion();
+          }, 2000);
+        });
+      }
+      
+      showQuestion();
+    }
+
+    // Build-the-Word Cards Game
+    function playBuildWordGame(difficulty, modal) {
+      const rounds = difficulty === 'easy' ? 5 : difficulty === 'medium' ? 7 : 10;
+      const words = shuffleArray(buildWordCards[difficulty]).slice(0, rounds);
+      let currentRound = 0;
+      let score = 0;
+      
+      function showQuestion() {
+        if (currentRound >= words.length) {
+          showGameResults(score, words.length, 'build-word', difficulty, modal);
+          return;
+        }
+        
+        const wordData = words[currentRound];
+        const shuffledLetters = shuffleArray([...wordData.letters]);
+        let builtWord = [];
+        
+        modal.innerHTML = `
+          <div style="position: relative; background-color: white; border-radius: 16px; padding: 3rem; max-width: 700px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+            <button onclick="closeGameModal()" class="btn-primary body-font" style="position: absolute; top: 1rem; right: 1rem; background-color: #FF6B6B; color: white; padding: 0.5rem; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; z-index: 10;">✕</button>
+            
+            <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; padding-right: 3rem;">
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Round ${currentRound + 1}/${words.length}</span>
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Score: ${score}</span>
+            </div>
+            
+            <h3 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color}; text-align: center;">🃏 Build the Word</h3>
+            <div style="font-size: 5rem; text-align: center; margin-bottom: 1rem;">${wordData.image}</div>
+            <p class="body-font" style="text-align: center; margin-bottom: 2rem; color: ${config.text_color}; opacity: 0.8;">Type: <strong style="color: ${config.accent_color};">${wordData.type}</strong></p>
+            
+            <!-- Word Building Area -->
+            <div id="word-area" style="min-height: 80px; background-color: ${config.background_color}; border: 3px dashed ${config.accent_color}; border-radius: 12px; padding: 1rem; margin-bottom: 2rem; display: flex; gap: 0.5rem; align-items: center; justify-content: center; flex-wrap: wrap;">
+              <span class="body-font" style="color: ${config.text_color}; opacity: 0.5; font-size: 1.125rem;">Tap letters below to build the word</span>
+            </div>
+            
+            <!-- Letter Cards -->
+            <div id="letter-cards" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+              ${shuffledLetters.map((letter, idx) => `
+                <button onclick="addLetter('${letter}', ${idx})" id="letter-${idx}" class="btn-primary body-font letter-btn" style="background-color: white; color: ${config.text_color}; padding: 1.5rem 2rem; border: 3px solid ${config.accent_color}; border-radius: 12px; font-size: 2rem; font-weight: 700; cursor: pointer; transition: all 0.2s; min-width: 70px;">
+                  ${letter}
+                </button>
+              `).join('')}
+            </div>
+            
+            <div style="display: flex; gap: 1rem;">
+              <button onclick="clearWord()" class="btn-primary body-font" style="flex: 1; background-color: white; color: ${config.accent_color}; padding: 1rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">Clear</button>
+              <button onclick="checkWord('${wordData.word}')" id="check-btn" class="btn-primary body-font" style="flex: 2; background-color: ${config.accent_color}; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; opacity: 0.5;" disabled>Check Word</button>
+            </div>
+          </div>
+        `;
+        
+        window.builtWord = [];
+        
+        window.addLetter = function(letter, idx) {
+          playSound('click');
+          const btn = document.getElementById(`letter-${idx}`);
+          const wordArea = document.getElementById('word-area');
+          const checkBtn = document.getElementById('check-btn');
+          
+          if (btn.style.display === 'none') return;
+          
+          window.builtWord.push({ letter, idx });
+          btn.style.display = 'none';
+          
+          wordArea.innerHTML = window.builtWord.map((item, i) => `
+            <div onclick="removeLetter(${i})" style="background-color: white; color: ${config.text_color}; padding: 1rem 1.5rem; border: 3px solid ${config.accent_color}; border-radius: 12px; font-size: 2rem; font-weight: 700; cursor: pointer; min-width: 60px; text-align: center;">
+              ${item.letter}
+            </div>
+          `).join('');
+          
+          checkBtn.disabled = window.builtWord.length === 0;
+          checkBtn.style.opacity = window.builtWord.length === 0 ? '0.5' : '1';
+        };
+        
+        window.removeLetter = function(position) {
+          playSound('click');
+          const removed = window.builtWord.splice(position, 1)[0];
+          const btn = document.getElementById(`letter-${removed.idx}`);
+          btn.style.display = 'inline-block';
+          
+          const wordArea = document.getElementById('word-area');
+          const checkBtn = document.getElementById('check-btn');
+          
+          if (window.builtWord.length === 0) {
+            wordArea.innerHTML = '<span class="body-font" style="color: ' + config.text_color + '; opacity: 0.5; font-size: 1.125rem;">Tap letters below to build the word</span>';
+            checkBtn.disabled = true;
+            checkBtn.style.opacity = '0.5';
+          } else {
+            wordArea.innerHTML = window.builtWord.map((item, i) => `
+              <div onclick="removeLetter(${i})" style="background-color: white; color: ${config.text_color}; padding: 1rem 1.5rem; border: 3px solid ${config.accent_color}; border-radius: 12px; font-size: 2rem; font-weight: 700; cursor: pointer; min-width: 60px; text-align: center;">
+                ${item.letter}
+              </div>
+            `).join('');
+          }
+        };
+        
+        window.clearWord = function() {
+          playSound('click');
+          window.builtWord.forEach(item => {
+            document.getElementById(`letter-${item.idx}`).style.display = 'inline-block';
+          });
+          window.builtWord = [];
+          document.getElementById('word-area').innerHTML = '<span class="body-font" style="color: ' + config.text_color + '; opacity: 0.5; font-size: 1.125rem;">Tap letters below to build the word</span>';
+          document.getElementById('check-btn').disabled = true;
+          document.getElementById('check-btn').style.opacity = '0.5';
+        };
+        
+        window.checkWord = function(correctWord) {
+          const userWord = window.builtWord.map(item => item.letter).join('');
+          const wordArea = document.getElementById('word-area');
+          const buttons = document.querySelectorAll('.letter-btn');
+          buttons.forEach(btn => btn.style.pointerEvents = 'none');
+          document.getElementById('check-btn').style.pointerEvents = 'none';
+          
+          if (userWord === correctWord) {
+            playSound('correct');
+            wordArea.style.borderColor = '#228B22';
+            wordArea.style.backgroundColor = '#90EE90';
+            score++;
+          } else {
+            playSound('wrong');
+            wordArea.style.borderColor = '#DC143C';
+            wordArea.style.backgroundColor = '#FF6B6B';
+            wordArea.innerHTML = `
+              <div style="text-align: center;">
+                <div class="body-font" style="color: white; font-weight: 600; margin-bottom: 0.5rem;">Your word: ${userWord}</div>
+                <div class="body-font" style="color: white; font-weight: 600;">Correct word: ${correctWord}</div>
+              </div>
+            `;
+          }
+          
+          setTimeout(() => {
+            currentRound++;
+            showQuestion();
+          }, 2000);
+        };
+      }
+      
+      showQuestion();
+    }
+
+    // Sentence Builder Train Game
+    function playSentenceBuilderGame(difficulty, modal) {
+      const rounds = difficulty === 'easy' ? 5 : difficulty === 'medium' ? 7 : 10;
+      const sentences = shuffleArray(sentenceBuilderData[difficulty]).slice(0, rounds);
+      let currentRound = 0;
+      let score = 0;
+      
+      function showQuestion() {
+        if (currentRound >= sentences.length) {
+          showGameResults(score, sentences.length, 'sentence-builder', difficulty, modal);
+          return;
+        }
+        
+        const sentenceData = sentences[currentRound];
+        const shuffledWords = shuffleArray([...sentenceData.words]);
+        let builtSentence = [];
+        
+        modal.innerHTML = `
+          <div style="position: relative; background-color: white; border-radius: 16px; padding: 3rem; max-width: 900px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto;">
+            <button onclick="closeGameModal()" class="btn-primary body-font" style="position: absolute; top: 1rem; right: 1rem; background-color: #FF6B6B; color: white; padding: 0.5rem; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; z-index: 10;">✕</button>
+            
+            <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; padding-right: 3rem;">
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Round ${currentRound + 1}/${sentences.length}</span>
+              <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Score: ${score}</span>
+            </div>
+            
+            <h3 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color}; text-align: center;">🚂 Sentence Builder Train</h3>
+            <div style="font-size: 4rem; text-align: center; margin-bottom: 1.5rem;">${sentenceData.image}</div>
+            <p class="body-font" style="text-align: center; margin-bottom: 2rem; color: ${config.text_color}; opacity: 0.8;">Arrange the words to build the correct sentence</p>
+            
+            <!-- Train Track (Sentence Building Area) -->
+            <div id="train-track" style="min-height: 100px; background: linear-gradient(to bottom, ${config.background_color} 0%, ${config.background_color} 85%, ${config.accent_color} 85%, ${config.accent_color} 88%, transparent 88%, transparent 92%, ${config.accent_color} 92%, ${config.accent_color} 95%); border: 3px solid ${config.accent_color}; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+              <span class="body-font" style="color: ${config.text_color}; opacity: 0.5; font-size: 1.125rem;">🚂 Tap words below to add them to the train</span>
+            </div>
+            
+            <!-- Word Station -->
+            <div id="word-station" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; padding: 1.5rem; background-color: ${config.background_color}; border-radius: 12px;">
+              ${shuffledWords.map((word, idx) => `
+                <button onclick="addWordToTrain('${word}', ${idx})" id="word-${idx}" class="btn-primary body-font word-btn" style="background-color: white; color: ${config.text_color}; padding: 1rem 1.5rem; border: 3px solid ${config.accent_color}; border-radius: 12px; font-size: 1.25rem; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+                  ${word}
+                </button>
+              `).join('')}
+            </div>
+            
+            <div style="display: flex; gap: 1rem;">
+              <button onclick="clearTrain()" class="btn-primary body-font" style="flex: 1; background-color: white; color: ${config.accent_color}; padding: 1rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">Clear Train</button>
+              <button onclick="checkSentence('${sentenceData.sentence}')" id="check-sentence-btn" class="btn-primary body-font" style="flex: 2; background-color: ${config.accent_color}; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; opacity: 0.5;" disabled>Check Sentence</button>
+            </div>
+          </div>
+        `;
+        
+        window.builtSentence = [];
+        
+        window.addWordToTrain = function(word, idx) {
+          playSound('click');
+          const btn = document.getElementById(`word-${idx}`);
+          const track = document.getElementById('train-track');
+          const checkBtn = document.getElementById('check-sentence-btn');
+          
+          if (btn.style.display === 'none') return;
+          
+          window.builtSentence.push({ word, idx });
+          btn.style.display = 'none';
+          
+          track.innerHTML = '🚂 ' + window.builtSentence.map((item, i) => `
+            <div onclick="removeWordFromTrain(${i})" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.25rem; border: 3px solid #6B8F7F; border-radius: 12px; font-size: 1.25rem; font-weight: 600; cursor: pointer; position: relative;">
+              ${item.word}
+              <div style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 30px; height: 30px; background-color: #4A4A4A; border-radius: 50%; border: 3px solid #2A2A2A;"></div>
+              <div style="position: absolute; bottom: -15px; right: 5px; width: 20px; height: 20px; background-color: #4A4A4A; border-radius: 50%; border: 3px solid #2A2A2A;"></div>
+            </div>
+          `).join('');
+          
+          checkBtn.disabled = window.builtSentence.length === 0;
+          checkBtn.style.opacity = window.builtSentence.length === 0 ? '0.5' : '1';
+        };
+        
+        window.removeWordFromTrain = function(position) {
+          playSound('click');
+          const removed = window.builtSentence.splice(position, 1)[0];
+          const btn = document.getElementById(`word-${removed.idx}`);
+          btn.style.display = 'inline-block';
+          
+          const track = document.getElementById('train-track');
+          const checkBtn = document.getElementById('check-sentence-btn');
+          
+          if (window.builtSentence.length === 0) {
+            track.innerHTML = '<span class="body-font" style="color: ' + config.text_color + '; opacity: 0.5; font-size: 1.125rem;">🚂 Tap words below to add them to the train</span>';
+            checkBtn.disabled = true;
+            checkBtn.style.opacity = '0.5';
+          } else {
+            track.innerHTML = '🚂 ' + window.builtSentence.map((item, i) => `
+              <div onclick="removeWordFromTrain(${i})" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.25rem; border: 3px solid #6B8F7F; border-radius: 12px; font-size: 1.25rem; font-weight: 600; cursor: pointer; position: relative;">
+                ${item.word}
+                <div style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 30px; height: 30px; background-color: #4A4A4A; border-radius: 50%; border: 3px solid #2A2A2A;"></div>
+                <div style="position: absolute; bottom: -15px; right: 5px; width: 20px; height: 20px; background-color: #4A4A4A; border-radius: 50%; border: 3px solid #2A2A2A;"></div>
+              </div>
+            `).join('');
+          }
+        };
+        
+        window.clearTrain = function() {
+          playSound('click');
+          window.builtSentence.forEach(item => {
+            document.getElementById(`word-${item.idx}`).style.display = 'inline-block';
+          });
+          window.builtSentence = [];
+          document.getElementById('train-track').innerHTML = '<span class="body-font" style="color: ' + config.text_color + '; opacity: 0.5; font-size: 1.125rem;">���� Tap words below to add them to the train</span>';
+          document.getElementById('check-sentence-btn').disabled = true;
+          document.getElementById('check-sentence-btn').style.opacity = '0.5';
+        };
+        
+        window.checkSentence = function(correctSentence) {
+          const userSentence = window.builtSentence.map(item => item.word).join(' ');
+          const track = document.getElementById('train-track');
+          const buttons = document.querySelectorAll('.word-btn');
+          buttons.forEach(btn => btn.style.pointerEvents = 'none');
+          document.getElementById('check-sentence-btn').style.pointerEvents = 'none';
+          
+          if (userSentence === correctSentence) {
+            playSound('correct');
+            track.style.borderColor = '#228B22';
+            track.style.background = 'linear-gradient(to bottom, #90EE90 0%, #90EE90 85%, #228B22 85%, #228B22 88%, transparent 88%, transparent 92%, #228B22 92%, #228B22 95%)';
+            score++;
+          } else {
+            playSound('wrong');
+            track.style.borderColor = '#DC143C';
+            track.style.background = '#FF6B6B';
+            track.innerHTML = `
+              <div style="text-align: center; width: 100%;">
+                <div class="body-font" style="color: white; font-weight: 600; margin-bottom: 0.75rem; font-size: 1.1rem;">❌ Your sentence: "${userSentence}"</div>
+                <div class="body-font" style="color: white; font-weight: 600; font-size: 1.1rem;">✅ Correct sentence: "${correctSentence}"</div>
+              </div>
+            `;
+          }
+          
+          setTimeout(() => {
+            currentRound++;
+            showQuestion();
+          }, 3000);
+        };
+      }
+      
+      showQuestion();
+    }
+
+    // Vocabulary Maze and Reading Quest Game
+    function playVocabOrReadingGame(gameType, difficulty, modal) {
+      const rounds = difficulty === 'easy' ? 5 : difficulty === 'medium' ? 8 : 10;
+      const questions = gameType === 'vocabulary-maze' 
+        ? shuffleArray(vocabularyMazeQuestions).slice(0, rounds)
+        : shuffleArray(readingComprehensionQuestions).slice(0, rounds);
+      
+      let currentRound = 0;
+      let score = 0;
+      
+      function showQuestion() {
+        if (currentRound >= questions.length) {
+          showResults();
+          return;
+        }
+        
+        const q = questions[currentRound];
+        
+        if (gameType === 'vocabulary-maze') {
+          // Shuffle the options and track the new position of the correct answer
+          const shuffledOptions = shuffleArray(q.options.map((opt, idx) => ({ text: opt, originalIdx: idx })));
+          const correctPosition = shuffledOptions.findIndex(opt => opt.originalIdx === q.correct);
+          
+          modal.innerHTML = `
+            <div style="position: relative; background-color: white; border-radius: 16px; padding: 3rem; max-width: 700px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+              <button onclick="closeGameModal()" class="btn-primary body-font" style="position: absolute; top: 1rem; right: 1rem; background-color: #FF6B6B; color: white; padding: 0.5rem; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1;">��</button>
+              
+              <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; padding-right: 3rem;">
+                <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Round ${currentRound + 1}/${questions.length}</span>
+                <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Score: ${score}</span>
+              </div>
+              
+              <h3 class="heading-font" style="font-size: 1.75rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color}; text-align: center;">Find the synonym for:</h3>
+              <p class="heading-font" style="font-size: 3rem; text-align: center; margin-bottom: 2rem; color: ${config.accent_color}; font-weight: 600;">${q.word}</p>
+              
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                ${shuffledOptions.map((option, idx) => `
+                  <button onclick="checkAnswer(${idx}, ${correctPosition})" class="btn-primary body-font answer-btn" style="background-color: ${config.background_color}; color: ${config.text_color}; padding: 1.5rem; border: 3px solid ${config.accent_color}; border-radius: 12px; font-size: 1.125rem; font-weight: 500; cursor: pointer; transition: all 0.2s;">
+                    ${option.text}
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        } else {
+          // Shuffle the options and track the new position of the correct answer
+          const shuffledOptions = shuffleArray(q.options.map((opt, idx) => ({ text: opt, originalIdx: idx })));
+          const correctPosition = shuffledOptions.findIndex(opt => opt.originalIdx === q.correct);
+          
+          modal.innerHTML = `
+            <div style="position: relative; background-color: white; border-radius: 16px; padding: 3rem; max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+              <button onclick="closeGameModal()" class="btn-primary body-font" style="position: absolute; top: 1rem; right: 1rem; background-color: #FF6B6B; color: white; padding: 0.5rem; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; z-index: 10;">✕</button>
+              
+              <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; padding-right: 3rem;">
+                <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Round ${currentRound + 1}/${questions.length}</span>
+                <span class="body-font" style="color: ${config.accent_color}; font-weight: 600;">Score: ${score}</span>
+              </div>
+              
+              <div style="background-color: ${config.background_color}; padding: 2rem; border-radius: 12px; margin-bottom: 2rem; border-left: 4px solid ${config.accent_color};">
+                <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color};">${q.passage}</p>
+              </div>
+              
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: ${config.text_color};">${q.question}</h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                ${shuffledOptions.map((option, idx) => `
+                  <button onclick="checkAnswer(${idx}, ${correctPosition})" class="btn-primary body-font answer-btn" style="background-color: ${config.background_color}; color: ${config.text_color}; padding: 1.25rem; border: 3px solid ${config.accent_color}; border-radius: 12px; font-size: 1.125rem; font-weight: 500; cursor: pointer; text-align: left; transition: all 0.2s;">
+                    ${option.text}
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }
+      }
+      
+      window.checkAnswer = function(selectedIdx, correctIdx) {
+        const buttons = document.querySelectorAll('.answer-btn');
+        buttons.forEach(btn => btn.style.pointerEvents = 'none');
+        
+        if (selectedIdx === correctIdx) {
+          playSound('correct');
+          buttons[selectedIdx].style.backgroundColor = '#90EE90';
+          buttons[selectedIdx].style.borderColor = '#228B22';
+          score++;
+        } else {
+          playSound('wrong');
+          buttons[selectedIdx].style.backgroundColor = '#FF6B6B';
+          buttons[selectedIdx].style.borderColor = '#DC143C';
+          buttons[correctIdx].style.backgroundColor = '#90EE90';
+          buttons[correctIdx].style.borderColor = '#228B22';
+        }
+        
+        setTimeout(() => {
+          currentRound++;
+          showQuestion();
+        }, 1500);
+      };
+      
+      function showResults() {
+        showGameResults(score, questions.length, gameType, difficulty, modal);
+      }
+      
+      showQuestion();
+    }
+
+    // Shared Game Results Function
+    function showGameResults(score, total, gameType, difficulty, modal) {
+      const percentage = Math.round((score / total) * 100);
+      const passed = percentage >= 60;
+      
+      if (passed) playSound('win');
+      
+      const gameTitle = gameType === 'vocabulary-maze' ? '🎯 Vocabulary Maze' : 
+                        gameType === 'reading-quest' ? '📖 Reading Quest' :
+                        gameType === 'word-family' ? '👨‍👩‍👧‍👦 Word Family Match' :
+                        gameType === 'build-word' ? '🃏 Build-the-Word Cards' :
+                        gameType === 'sentence-builder' ? '🚂 Sentence Builder Train' :
+                        gameType === 'number-sense' ? '🔢 Number Sense Builder' :
+                        gameType === 'problem-solving' ? '🧮 Problem-Solving Challenge' :
+                        '🧩 Pattern Recognition Puzzle';
+      
+      const isWordBuilding = gameType === 'word-family' || gameType === 'build-word' || gameType === 'sentence-builder';
+      const isMathGame = gameType === 'number-sense' || gameType === 'problem-solving' || gameType === 'pattern-recognition';
+      
+      modal.innerHTML = `
+        <div style="background-color: white; border-radius: 16px; padding: 3rem; max-width: 600px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.3); text-align: center;">
+          <div style="font-size: 5rem; margin-bottom: 1rem;">
+            ${passed ? '🎉' : '😊'}
+          </div>
+          <h2 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">
+            ${passed ? 'Congratulations!' : 'Good Try!'}
+          </h2>
+          <p class="body-font" style="font-size: 1.125rem; color: ${config.text_color}; opacity: 0.8; margin-bottom: 1rem;">${gameTitle}</p>
+          <p class="body-font" style="font-size: 1.5rem; color: ${config.accent_color}; font-weight: 600; margin-bottom: 2rem;">
+            Your Score: ${score}/${total} (${percentage}%)
+          </p>
+          
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <button onclick="playGame('${gameType}', '${difficulty}')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">
+              Play Again
+            </button>
+            <button onclick="startGame('${gameType}')" class="btn-primary body-font" style="background-color: white; color: ${config.accent_color}; padding: 1rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">
+              Change Difficulty
+            </button>
+            <button onclick="${isWordBuilding ? 'showWordBuildingMenu()' : isMathGame ? 'showMathGamesMenu()' : 'closeGameModal()'}" class="btn-primary body-font" style="background-color: white; color: ${config.accent_color}; padding: 1rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">
+              ${isWordBuilding || isMathGame ? 'Back to Menu' : 'Exit'}
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
     function handleFormSubmit(event) {
       event.preventDefault();
       
@@ -1505,5 +2986,5 @@
     // Initial render
     navigateToPage('home');
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b675b5ad680ed2b',t:'MTc2NzE1ODczMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b6c16ccb4ad9d86',t:'MTc2NzIwODM1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
