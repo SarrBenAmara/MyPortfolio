@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en" class="h-full">
  <head>
   <meta charset="UTF-8">
@@ -406,59 +406,66 @@
       `,
       
       games: () => `
-        <div class="page-transition" style="max-width: 900px; margin: 0 auto; padding: 4rem 2rem;">
+        <div class="page-transition" style="max-width: 1100px; margin: 0 auto; padding: 4rem 2rem;">
           <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Games & Interactive Learning</h1>
-          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Learning through play: engaging games that build literacy and language skills</p>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Learning through play: engaging games that build literacy, language, and math skills</p>
           
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+            
+            <!-- Card 1: Reading Comprehension & Vocabulary -->
             <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
               <div style="width: 60px; height: 60px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                <span style="font-size: 2rem;">&#127918;</span>
+                <span style="font-size: 2rem;">&#128214;</span>
               </div>
-              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Digital Learning Games</h3>
-              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Interactive digital games focusing on phonics, vocabulary, and reading comprehension</p>
-              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-                <button onclick="navigateToPage('digital-games')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer;">See Games</button>
-              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Reading & Vocabulary</h3>
+              <ul class="body-font" style="line-height: 1.8; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0; margin-bottom: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;">• Reading Comprehension Quest</li>
+                <li style="margin-bottom: 0.5rem;">• Vocabulary Picture Quest</li>
+                <li style="margin-bottom: 0.5rem;">• Vocabulary Maze</li>
+              </ul>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Coming Soon</button>
             </div>
             
+            <!-- Card 2: Word Building Games -->
             <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
               <div style="width: 60px; height: 60px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
                 <span style="font-size: 2rem;">&#128292;</span>
               </div>
-              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Phonics & Literacy Games</h3>
-              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1rem;">Systematic phonics instruction through engaging card games, board games, and interactive activities</p>
-              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-                <button onclick="navigateToPage('phonics-games')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer;">See Games</button>
-              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Word Building Games</h3>
+              <ul class="body-font" style="line-height: 1.8; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0; margin-bottom: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;">• Word Family Match</li>
+                <li style="margin-bottom: 0.5rem;">• Build-the-Word Cards</li>
+                <li style="margin-bottom: 0.5rem;">• Phonics Memory Match</li>
+                <li style="margin-bottom: 0.5rem;">• Spin & Read</li>
+                <li style="margin-bottom: 0.5rem;">• Word Builder Train</li>
+              </ul>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Coming Soon</button>
             </div>
             
+            <!-- Card 3: Math & Logic Games -->
             <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
               <div style="width: 60px; height: 60px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
                 <span style="font-size: 2rem;">&#128290;</span>
               </div>
-              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Math & Logic Games</h3>
-              <ul class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0; margin-bottom: 1rem;">
-                <li style="margin-bottom: 0.25rem;">• Number sense building activities</li>
-                <li style="margin-bottom: 0.25rem;">• Problem-solving challenges</li>
-                <li style="margin-bottom: 0.25rem;">• Pattern recognition puzzles</li>
-                <li style="margin-bottom: 0.25rem;">• Collaborative math games</li>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Math & Logic Games</h3>
+              <ul class="body-font" style="line-height: 1.8; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0; margin-bottom: 1.5rem;">
+                <li style="margin-bottom: 0.5rem;">• Number Sense Builder</li>
+                <li style="margin-bottom: 0.5rem;">• Problem-Solving Challenge</li>
+                <li style="margin-bottom: 0.5rem;">• Pattern Recognition Puzzle</li>
               </ul>
-              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-                <button onclick="navigateToPage('math-games')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer;">See Games</button>
-              </div>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Coming Soon</button>
             </div>
             
+            <!-- Card 4: Lesson Summaries -->
             <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
               <div style="width: 60px; height: 60px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
                 <span style="font-size: 2rem;">&#128221;</span>
               </div>
-              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Lesson Summaries</h3>
-              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1rem;">Visual summaries and key takeaways from lessons to support student learning and review</p>
-              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-                <button onclick="navigateToPage('lesson-summaries')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer;">See Summaries</button>
-              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Lesson Summaries</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Visual summaries and key takeaways from lessons to support student learning and review</p>
+              <button onclick="navigateToPage('lesson-summaries')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%;">View Summaries</button>
             </div>
+            
           </div>
         </div>
       `,
@@ -1116,6 +1123,61 @@
       document.body.appendChild(modal);
     }
 
+    function openGameViewer(title, url) {
+      // Create modal overlay
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      `;
+      
+      // Create close button
+      const closeBtn = document.createElement('button');
+      closeBtn.textContent = '✕ Close';
+      closeBtn.className = 'btn-primary body-font';
+      closeBtn.style.cssText = `
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: ${config.accent_color};
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        z-index: 1001;
+      `;
+      closeBtn.onclick = () => modal.remove();
+      
+      // Create iframe
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.style.cssText = `
+        width: 90%;
+        max-width: 1200px;
+        height: 85%;
+        border: none;
+        border-radius: 12px;
+        background-color: white;
+      `;
+      
+      modal.appendChild(closeBtn);
+      modal.appendChild(iframe);
+      document.body.appendChild(modal);
+    }
+
     function openHomeworkViewer(title, url) {
       // Create modal overlay
       const modal = document.createElement('div');
@@ -1443,5 +1505,5 @@
     // Initial render
     navigateToPage('home');
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b6736ad92cb0e49',t:'MTc2NzE1NzIyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b675b5ad680ed2b',t:'MTc2NzE1ODczMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
