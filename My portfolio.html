@@ -1,0 +1,1447 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarra Ben Amara - Teacher Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+    
+    .heading-font {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .body-font {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .page-transition {
+      animation: fadeIn 0.4s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0) scale(0.95); }
+      25% { transform: translateX(-10px) scale(0.95); }
+      75% { transform: translateX(10px) scale(0.95); }
+    }
+    
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .nav-link.active:after {
+      width: 100%;
+    }
+    
+    .btn-primary {
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(143, 175, 159, 0.3);
+    }
+    
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid #8FAF9F;
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+    
+    .mobile-nav-link:hover {
+      background-color: #FFF9F2;
+    }
+    
+    /* Mobile responsive navigation */
+    @media (max-width: 768px) {
+      #desktop-nav {
+        display: none !important;
+      }
+      
+      #mobile-menu-btn {
+        display: block !important;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full body-font overflow-auto" style="background-color: #FFF9F2; color: #3E3E3E;"><!-- Navigation -->
+  <nav class="w-full" style="background-color: #FFFFFF; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+   <div class="page-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 1.25rem 2rem;">
+    <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+     <div class="heading-font" style="font-size: 1.5rem; font-weight: 600; color: #3E3E3E; position: absolute; left: 0;"><span>Sarra Ben Amara</span>
+     </div><!-- Mobile Menu Button --> <button id="mobile-menu-btn" class="body-font" style="display: none; background-color: #8FAF9F; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; position: absolute; right: 0;"> ☰ Menu </button> <!-- Desktop Navigation (Two Lines) -->
+     <div id="desktop-nav" style="display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; justify-content: center;"><a href="#" class="nav-link active body-font" data-page="home" style="color: #8FAF9F; font-weight: 500; text-decoration: none;">Home</a> <a href="#" class="nav-link body-font" data-page="about" style="color: #3E3E3E; font-weight: 500; text-decoration: none;">About</a> <a href="#" class="nav-link body-font" data-page="teaching" style="color: #3E3E3E; font-weight: 500; text-decoration: none;">Teaching &amp; Curriculum</a> <a href="#" class="nav-link body-font" data-page="games" style="color: #3E3E3E; font-weight: 500; text-decoration: none;">Games &amp; Learning</a> <a href="#" class="nav-link body-font" data-page="books" style="color: #3E3E3E; font-weight: 500; text-decoration: none;">Books &amp; Publications</a>
+      </div>
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; justify-content: center;"><a href="#" class="nav-link body-font" data-page="digital" style="color: #3E3E3E; font-weight: 500; text-decoration: none;">Arduino &amp; Robotics Projects</a> <a href="#" class="nav-link body-font" data-page="classroom" style="color: #3E3E3E; font-weight: 500; text-decoration: none;">Classroom Practice</a> <a href="#" class="nav-link body-font" data-page="homework" style="color: #3E3E3E; font-weight: 500; text-decoration: none;">Interactive Homework</a> <a href="#" class="nav-link body-font" data-page="contact" style="color: #3E3E3E; font-weight: 500; text-decoration: none;">Contact</a>
+      </div>
+     </div>
+    </div>
+   </div><!-- Mobile Sidebar Menu -->
+   <div id="mobile-sidebar" style="position: fixed; top: 0; right: -100%; width: 280px; height: 100%; background-color: #FFFFFF; box-shadow: -4px 0 16px rgba(0,0,0,0.1); z-index: 2000; transition: right 0.3s ease; overflow-y: auto; padding: 2rem 1.5rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+     <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; color: #3E3E3E;">Menu</h3><button id="close-sidebar-btn" class="body-font" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #3E3E3E;">✕</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 1rem;"><a href="#" class="nav-link mobile-nav-link active body-font" data-page="home" style="color: #8FAF9F; font-weight: 500; text-decoration: none; padding: 0.75rem; border-radius: 8px; transition: background-color 0.2s;">Home</a> <a href="#" class="nav-link mobile-nav-link body-font" data-page="about" style="color: #3E3E3E; font-weight: 500; text-decoration: none; padding: 0.75rem; border-radius: 8px; transition: background-color 0.2s;">About</a> <a href="#" class="nav-link mobile-nav-link body-font" data-page="teaching" style="color: #3E3E3E; font-weight: 500; text-decoration: none; padding: 0.75rem; border-radius: 8px; transition: background-color 0.2s;">Teaching &amp; Curriculum</a> <a href="#" class="nav-link mobile-nav-link body-font" data-page="games" style="color: #3E3E3E; font-weight: 500; text-decoration: none; padding: 0.75rem; border-radius: 8px; transition: background-color 0.2s;">Games &amp; Learning</a> <a href="#" class="nav-link mobile-nav-link body-font" data-page="books" style="color: #3E3E3E; font-weight: 500; text-decoration: none; padding: 0.75rem; border-radius: 8px; transition: background-color 0.2s;">Books &amp; Publications</a> <a href="#" class="nav-link mobile-nav-link body-font" data-page="digital" style="color: #3E3E3E; font-weight: 500; text-decoration: none; padding: 0.75rem; border-radius: 8px; transition: background-color 0.2s;">Arduino &amp; Robotics</a> <a href="#" class="nav-link mobile-nav-link body-font" data-page="classroom" style="color: #3E3E3E; font-weight: 500; text-decoration: none; padding: 0.75rem; border-radius: 8px; transition: background-color 0.2s;">Classroom Practice</a> <a href="#" class="nav-link mobile-nav-link body-font" data-page="homework" style="color: #3E3E3E; font-weight: 500; text-decoration: none; padding: 0.75rem; border-radius: 8px; transition: background-color 0.2s;">Interactive Homework</a> <a href="#" class="nav-link mobile-nav-link body-font" data-page="contact" style="color: #3E3E3E; font-weight: 500; text-decoration: none; padding: 0.75rem; border-radius: 8px; transition: background-color 0.2s;">Contact</a>
+    </div>
+   </div><!-- Overlay for mobile menu -->
+   <div id="sidebar-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1999; display: none;"></div>
+  </nav><!-- Main Content Area -->
+  <main id="main-content" class="w-full" style="min-height: calc(100% - 80px);"><!-- Pages will be rendered here -->
+  </main><!-- Footer -->
+  <footer class="w-full" style="background-color: #FFFFFF; border-top: 1px solid rgba(0,0,0,0.05); padding: 2rem 0; margin-top: 4rem;">
+   <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; text-align: center;">
+    <p class="body-font" style="color: #3E3E3E; margin-bottom: 0.5rem; font-size: 0.95rem;">© 2025 - 2026 Sarra Ben Amara. All rights reserved.</p>
+    <p class="body-font" style="color: #8FAF9F; font-size: 0.95rem;">Inspiring learners, one lesson at a time 📚🌟</p>
+   </div>
+  </footer>
+  <script>
+    // Configuration
+    const config = {
+      teacher_name: "Sarra Ben Amara",
+      professional_title: "International Educator | TESOL Certified | Educational Content Creator",
+      tagline: "Nurturing curiosity and inspiring lifelong learners across cultures",
+      about_intro: "I am an internationally experienced educator with a deep passion for teaching, creativity, and meaningful learning. With over six years of teaching experience across Tunisia, the Middle East, and the United States, I have worked with learners of different ages, cultures, and learning profiles, both in classrooms and online. I hold a TESOL certification and a Bachelor's degree in Science, specialized in Physics, Sensors, and Instrumentation, which allows me to approach teaching with clarity, structure, and strong problem-solving skills. Beyond teaching, I enjoy integrating technology, programming, and interactive educational tools into my practice to make learning engaging and accessible. I am fluent in Arabic, French, and English, and I also speak Turkish, German, and some Russian, which helps me build strong connections with learners from around the world. My goal is to create a positive, supportive learning environment where students feel confident, curious, and inspired to grow academically and personally.",
+      email_address: "sarah.chen@example.com",
+      background_color: "#FFF9F2",
+      accent_color: "#8FAF9F",
+      button_color: "#8FAF9F",
+      text_color: "#3E3E3E",
+      highlight_color: "#F7E6A1"
+    };
+
+    // Lesson Summaries Data - ADD YOUR IMAGE URLS HERE
+    const lessonSummaries = [
+      // Science Summaries
+      {
+        title: "States of Matter",
+        image: "https://i.imgur.com/9rCPcyO.jpg",
+        subject: "Science",
+        grade: "Primary"
+      },
+      {
+        title: "Light and Shadows",
+        image: "https://i.imgur.com/z5Fx289.jpg",
+        subject: "Science",
+        grade: "Primary"
+      },
+      {
+        title: "Sound Waves",
+        image: "https://i.imgur.com/TpIPNpO.jpg",
+        subject: "Science",
+        grade: "Primary"
+      },
+      {
+        title: "Living Things",
+        image: "https://i.imgur.com/pVteI2C.jpg",
+        subject: "Science",
+        grade: "Primary"
+      },
+      // English Summaries
+      {
+        title: "Writing Techniques",
+        image: "https://i.imgur.com/FX0izO1.jpg",
+        subject: "English",
+        grade: "Primary"
+      },
+      {
+        title: "Grammar Focus",
+        image: "https://i.imgur.com/ziUToqL.jpg",
+        subject: "English",
+        grade: "Primary"
+      },
+      {
+        title: "Reading Comprehension",
+        image: "https://i.imgur.com/G1S51Ol.jpg",
+        subject: "English",
+        grade: "Primary"
+      },
+      {
+        title: "Vocabulary Building",
+        image: "https://i.imgur.com/hAqoTCY.jpg",
+        subject: "English",
+        grade: "Primary"
+      },
+      {
+        title: "Story Elements",
+        image: "https://i.imgur.com/P2hCzS1.jpg",
+        subject: "English",
+        grade: "Primary"
+      },
+      {
+        title: "Punctuation Rules",
+        image: "https://i.imgur.com/VdgwTvN.jpg",
+        subject: "English",
+        grade: "Primary"
+      }
+    ];
+
+    // Flip Books Data - ADD YOUR GITHUB PAGES URLS HERE
+    const flipBooks = [
+      {
+        title: "The Four Friends and Seasons",
+        url: "https://sarrbenamara.github.io/the-four-friends-and-seasons-book/",
+        cover: "https://i.imgur.com/ag2kMjI.jpg",
+        description: "A delightful story about friendship through the changing seasons",
+        age: "Ages 5-8"
+      },
+      {
+        title: "The Brave Little Hedgehog",
+        url: "https://sarrbenamara.github.io/The-Brave-Little-Hedgehog--book/",
+        cover: "https://i.imgur.com/sPRCBwd.jpg",
+        description: "An inspiring tale of courage and adventure",
+        age: "Ages 5-8"
+      },
+      {
+        title: "Humans Team vs Animals Team",
+        url: "https://sarrbenamara.github.io/HumansteamVsAniamlsteam-Mewen-s-book/",
+        cover: "https://i.imgur.com/bXL2P2y.jpg",
+        description: "Mewen's exciting story about teamwork and competition",
+        age: "Ages 6-10"
+      },
+      {
+        title: "Architecture Through Time",
+        url: "https://sarrbenamara.github.io/YasmineYoussef-Architecturethroughtime/",
+        cover: "https://i.imgur.com/bizz2Xg.jpg",
+        description: "Yasmine's exploration of architecture from ancient times to modern designs",
+        age: "Ages 8-12"
+      }
+      // Add more flip books here following the same format
+    ];
+
+    let currentPage = 'home';
+
+    const pages = {
+      home: () => `
+        <div class="page-transition" style="min-height: 600px; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem;">
+          <div style="max-width: 800px; text-align: center;">
+            <div style="margin-bottom: 2rem;">
+              <div style="width: 160px; height: 160px; border-radius: 50%; margin: 0 auto 2rem; overflow: hidden; border: 5px solid ${config.accent_color}; box-shadow: 0 8px 24px rgba(143, 175, 159, 0.3); position: relative;">
+                <img src="https://i.imgur.com/pirJruq.jpg" alt="Sarra Ben Amara" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='${config.accent_color}'; this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;\\\'><svg width=\\'80\\' height=\\'80\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\' xmlns=\\'http://www.w3.org/2000/svg\\'><path d=\\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z\\' fill=\\'white\\'/></svg></div>';">
+              </div>
+            </div>
+            <h1 class="heading-font" style="font-size: 3rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">${config.teacher_name}</h1>
+            <p class="body-font" style="font-size: 1.25rem; color: ${config.accent_color}; margin-bottom: 1.5rem; font-weight: 500;">${config.professional_title}</p>
+            <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; margin-bottom: 2.5rem; opacity: 0.9;">${config.tagline}</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+              <button class="btn-primary body-font" onclick="navigateToPage('teaching')" style="background-color: ${config.accent_color}; color: white; padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">Explore My Work</button>
+              <button class="btn-primary body-font" onclick="navigateToPage('contact')" style="background-color: white; color: ${config.accent_color}; padding: 1rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">Contact Me</button>
+            </div>
+          </div>
+        </div>
+        
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem;">
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">&#127757;</div>
+              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">International Experience</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85;">Teaching across cultures and continents, bringing global perspectives to every classroom.</p>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">&#128218;</div>
+              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Content Creation</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85;">Designing engaging educational materials that make learning accessible and fun.</p>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">&#127918;</div>
+              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Game-Based Learning</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85;">Creating interactive experiences that turn education into an adventure.</p>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">&#128161;</div>
+              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Innovative Teaching</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85;">Blending traditional methods with modern technology for meaningful learning.</p>
+            </div>
+          </div>
+        </div>
+      `,
+      
+      about: () => `
+        <div class="page-transition" style="max-width: 900px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 2rem; color: ${config.text_color};">About Me</h1>
+          <div style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.06); margin-bottom: 2rem;">
+            <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; margin-bottom: 1.5rem;">${config.about_intro}</p>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 3rem;">
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="width: 70px; height: 70px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z" fill="white"/>
+                  <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" fill="white"/>
+                </svg>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Teaching Experience</h3>
+              <p class="body-font" style="font-size: 1.05rem; line-height: 1.7; color: ${config.text_color}; opacity: 0.8;">6+ years of international teaching across Tunisia, the Middle East, and the United States</p>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="width: 70px; height: 70px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="white"/>
+                </svg>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">TESOL Certified</h3>
+              <p class="body-font" style="font-size: 1.05rem; line-height: 1.7; color: ${config.text_color}; opacity: 0.8;">Specialized training in teaching English to speakers of other languages</p>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="width: 70px; height: 70px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.5 3.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2v14H3v3c0 1.66 1.34 3 3 3h12c1.66 0 3-1.34 3-3V2l-1.5 1.5zM19 19c0 .55-.45 1-1 1s-1-.45-1-1v-3H8V5h11v14z" fill="white"/>
+                  <path d="M9 7h6v2H9zm7 0h2v2h-2zm-7 3h6v2H9zm7 0h2v2h-2z" fill="white"/>
+                </svg>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Bachelor in Science</h3>
+              <p class="body-font" style="font-size: 1.05rem; line-height: 1.7; color: ${config.text_color}; opacity: 0.8;">Specialized in Physics, Sensors, and Instrumentation</p>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="width: 70px; height: 70px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" fill="white"/>
+                </svg>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Multilingual Educator</h3>
+              <p class="body-font" style="font-size: 1.05rem; line-height: 1.7; color: ${config.text_color}; opacity: 0.8;">Fluent in Arabic, French, and English, with proficiency in Turkish, German, and Russian</p>
+            </div>
+          </div>
+        </div>
+      `,
+      
+      teaching: () => `
+        <div class="page-transition" style="max-width: 1100px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Teaching & Curriculum</h1>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Designing meaningful learning experiences that empower every student</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 2rem;">
+            <!-- Large Card: Curriculum Design & Development -->
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid ${config.accent_color};">
+              <h3 class="heading-font" style="font-size: 1.75rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Curriculum Design & Development</h3>
+              <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">I create comprehensive, standards-aligned curriculum that balances academic rigor with student engagement. My approach ensures that learning objectives are clear, measurable, and achievable for all learners.</p>
+              <ul class="body-font" style="line-height: 1.8; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Backward design methodology for purposeful planning</span></li>
+                <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Integration of 21st-century skills and competencies</span></li>
+                <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Cross-curricular connections and thematic units</span></li>
+                <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Alignment with international standards (IB, Common Core, British Curriculum)</span></li>
+              </ul>
+            </div>
+            
+            <!-- Two Cards Side by Side -->
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+              <!-- Left Card: Lesson Planning Excellence -->
+              <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid ${config.accent_color};">
+                <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Lesson Planning Excellence</h3>
+                <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Every lesson is carefully crafted with clear learning goals, engaging activities, and meaningful assessments.</p>
+                <ul class="body-font" style="line-height: 1.8; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0;">
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Detailed lesson plans with differentiation strategies</span></li>
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Scaffolded learning experiences</span></li>
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Incorporation of multiple teaching modalities</span></li>
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Real-world connections and authentic tasks</span></li>
+                </ul>
+              </div>
+              
+              <!-- Right Card: Differentiation & Inclusion -->
+              <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid ${config.accent_color};">
+                <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Differentiation & Inclusion</h3>
+                <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Meeting every student where they are and providing pathways for growth.</p>
+                <ul class="body-font" style="line-height: 1.8; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0;">
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Flexible grouping strategies</span></li>
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Multi-level task design</span></li>
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Accommodations for diverse learners</span></li>
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Support for English language learners</span></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Large Card: Assessment & Feedback -->
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid ${config.accent_color};">
+              <h3 class="heading-font" style="font-size: 1.75rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Assessment & Feedback</h3>
+              <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Thoughtful assessment practices that inform instruction and support student growth.</p>
+              <ul class="body-font" style="line-height: 1.8; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Formative and summative assessment design</span></li>
+                <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Portfolio-based and authentic assessment</span></li>
+                <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Clear rubrics and success criteria</span></li>
+                <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Constructive, growth-oriented feedback</span></li>
+                <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Student self-assessment and reflection</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `,
+      
+      games: () => `
+        <div class="page-transition" style="max-width: 900px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Games & Interactive Learning</h1>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Learning through play: engaging games that build literacy and language skills</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="width: 60px; height: 60px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                <span style="font-size: 2rem;">&#127918;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Digital Learning Games</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Interactive digital games focusing on phonics, vocabulary, and reading comprehension</p>
+              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                <button onclick="navigateToPage('digital-games')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer;">See Games</button>
+              </div>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="width: 60px; height: 60px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                <span style="font-size: 2rem;">&#128292;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Phonics & Literacy Games</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1rem;">Systematic phonics instruction through engaging card games, board games, and interactive activities</p>
+              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                <button onclick="navigateToPage('phonics-games')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer;">See Games</button>
+              </div>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="width: 60px; height: 60px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                <span style="font-size: 2rem;">&#128290;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Math & Logic Games</h3>
+              <ul class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0; margin-bottom: 1rem;">
+                <li style="margin-bottom: 0.25rem;">• Number sense building activities</li>
+                <li style="margin-bottom: 0.25rem;">• Problem-solving challenges</li>
+                <li style="margin-bottom: 0.25rem;">• Pattern recognition puzzles</li>
+                <li style="margin-bottom: 0.25rem;">• Collaborative math games</li>
+              </ul>
+              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                <button onclick="navigateToPage('math-games')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer;">See Games</button>
+              </div>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="width: 60px; height: 60px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                <span style="font-size: 2rem;">&#128221;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Lesson Summaries</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1rem;">Visual summaries and key takeaways from lessons to support student learning and review</p>
+              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                <button onclick="navigateToPage('lesson-summaries')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.5rem 1rem; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer;">See Summaries</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      
+      books: () => `
+        <div class="page-transition" style="max-width: 1400px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Books & Publications</h1>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Bringing stories to life for young readers and language learners</p>
+          
+          <!-- Featured Flip Books Section -->
+          <div style="margin-bottom: 4rem;">
+            <div id="flip-books-container" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+              <!-- Flip books will be dynamically added here -->
+            </div>
+            
+          </div>
+        </div>
+      `,
+      
+      digital: () => `
+        <div class="page-transition" style="max-width: 1100px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Arduino & Robotics Projects</h1>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Building hands-on projects with Arduino and Robotis to inspire innovation and problem-solving</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 3rem;">
+            
+            <!-- Line Follower Robot Card -->
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid ${config.accent_color};">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                <div style="width: 60px; height: 60px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center;">
+                  <span style="font-size: 2rem;">&#129302;</span>
+                </div>
+                <div>
+                  <h2 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 0.25rem; color: ${config.text_color};">Hands-on Project: Line Follower Robot</h2>
+                  <p class="body-font" style="color: ${config.accent_color}; font-weight: 500;">Arduino • Sensors • Programming</p>
+                </div>
+              </div>
+              
+              <!-- Project Images -->
+              <div style="margin-bottom: 2rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                  <img src="https://i.imgur.com/V05MfVp.jpg" alt="Robotics Project Assembly" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);" onerror="this.style.display='none'; this.alt='Image failed to load';">
+                  <img src="https://i.imgur.com/moDLrKd.jpg" alt="Completed Arduino Robot" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);" onerror="this.style.display='none'; this.alt='Image failed to load';">
+                  <img src="https://i.imgur.com/kfG5fhU.jpg" alt="Arduino Line Follower Robot" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);" onerror="this.style.display='none'; this.alt='Image failed to load';">
+                </div>
+              </div>
+              
+              <!-- Project Steps -->
+              <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                  <div style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center;">
+                    <span class="heading-font" style="font-weight: 600; color: white;">1</span>
+                  </div>
+                  <div>
+                    <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color};">Components</h3>
+                    <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85;">Students explore and identify each part: microcontroller, motors, wheels, line sensors, chassis, battery pack, and cables.</p>
+                  </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                  <div style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center;">
+                    <span class="heading-font" style="font-weight: 600; color: white;">2</span>
+                  </div>
+                  <div>
+                    <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color};">Assembly</h3>
+                    <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85;">Parts are mounted on the chassis, motors aligned, and sensors positioned for accurate line detection.</p>
+                  </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                  <div style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center;">
+                    <span class="heading-font" style="font-weight: 600; color: white;">3</span>
+                  </div>
+                  <div>
+                    <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color};">Circuit Design (TinkerCad)</h3>
+                    <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85;">The wiring scheme is planned digitally, connecting motors, sensors, and power supply before physical assembly.</p>
+                  </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                  <div style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center;">
+                    <span class="heading-font" style="font-weight: 600; color: white;">4</span>
+                  </div>
+                  <div>
+                    <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color};">Construction & Wiring</h3>
+                    <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85;">Cables are connected according to the TinkerCad plan, ensuring correct polarity and neat organization.</p>
+                  </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                  <div style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center;">
+                    <span class="heading-font" style="font-weight: 600; color: white;">5</span>
+                  </div>
+                  <div>
+                    <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color};">Testing & Calibration</h3>
+                    <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85;">The robot is tested, sensors adjusted, and motors calibrated to follow the line accurately.</p>
+                  </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                  <div style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center;">
+                    <span class="heading-font" style="font-weight: 600; color: white;">6</span>
+                  </div>
+                  <div>
+                    <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color};">Challenge & Competition</h3>
+                    <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85;">Robots navigate a track autonomously, applying skills learned in design, wiring, and problem-solving.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Robotics Lesson Sample Card -->
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid ${config.accent_color};">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                <div style="width: 60px; height: 60px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center;">
+                  <span style="font-size: 2rem;">&#128203;</span>
+                </div>
+                <div>
+                  <h2 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 0.25rem; color: ${config.text_color};">Full Robotics Lesson</h2>
+                  <p class="body-font" style="color: ${config.accent_color}; font-weight: 500;">Complete Lesson • Student Activities • Assessment</p>
+                </div>
+              </div>
+              
+              <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85; margin-bottom: 2rem;">A complete robotics lesson designed for students. This example demonstrates how I plan, implement, and assess hands-on learning experiences that integrate technology, problem-solving, and creativity.</p>
+              
+              <div style="margin-bottom: 2rem; padding: 1.5rem; background-color: ${config.background_color}; border-radius: 8px;">
+                <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">What's Included:</h3>
+                <ul class="body-font" style="line-height: 1.8; color: ${config.text_color}; opacity: 0.85; list-style: none; padding-left: 0;">
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Clear learning objectives and outcomes</span></li>
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Step-by-step lesson procedures</span></li>
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Student activity worksheets and guides</span></li>
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Assessment strategies and rubrics</span></li>
+                  <li style="margin-bottom: 0.5rem; display: flex; align-items: flex-start; gap: 0.5rem;"><span style="color: ${config.accent_color}; font-weight: bold; flex-shrink: 0;">✓</span><span>Differentiation approaches for diverse learners</span></li>
+                </ul>
+              </div>
+              
+              <div style="margin-top: 1.5rem; padding: 2rem; background-color: ${config.background_color}; border-radius: 12px; border: 2px solid ${config.accent_color};">
+                <p class="body-font" style="text-align: center; margin-bottom: 1.5rem; color: ${config.text_color}; font-size: 1.05rem;">
+                  &#128196; <strong>View the complete Robotics Lesson</strong>
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+                  <a href="https://drive.google.com/file/d/1ESygmpC0pOJIVixKjZ0gYyMNLlxVCojl/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-primary body-font" style="display: inline-block; background-color: ${config.accent_color}; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 500;">Open Lesson →</a>
+                  <p class="body-font" style="color: ${config.text_color}; opacity: 0.7; font-size: 0.9rem;">Opens in a new tab</p>
+                </div>
+              </div>
+              
+
+            </div>
+            
+            <!-- Scratch Projects Card -->
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid ${config.accent_color};">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                <div style="width: 60px; height: 60px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center;">
+                  <span style="font-size: 2rem;">&#128049;</span>
+                </div>
+                <div>
+                  <h2 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 0.25rem; color: ${config.text_color};">Scratch Programming Projects</h2>
+                  <p class="body-font" style="color: ${config.accent_color}; font-weight: 500;">Block-based Coding • Game Design • Storytelling</p>
+                </div>
+              </div>
+              
+              <!-- Project Image -->
+              <div style="margin-bottom: 2rem;">
+                <img src="https://i.imgur.com/eU7OUpP.jpg" alt="Scratch Programming Projects" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);" onerror="this.style.display='none'; this.alt='Image failed to load';">
+              </div>
+              
+              <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85; margin-bottom: 2rem;">Students learn fundamental programming concepts through Scratch, creating interactive stories, games, and animations. These projects build computational thinking, problem-solving skills, and creativity while making coding accessible and fun for all learners.</p>
+              
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div style="padding: 1.5rem; background-color: ${config.background_color}; border-radius: 8px;">
+                  <h3 class="heading-font" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">&#127918; Interactive Games</h3>
+                  <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; font-size: 0.95rem;">Students design and code games with scoring systems, collision detection, and multiple levels</p>
+                </div>
+                
+                <div style="padding: 1.5rem; background-color: ${config.background_color}; border-radius: 8px;">
+                  <h3 class="heading-font" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">&#128214; Animated Stories</h3>
+                  <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; font-size: 0.95rem;">Create interactive narratives with character dialogue, scene changes, and user choices</p>
+                </div>
+                
+                <div style="padding: 1.5rem; background-color: ${config.background_color}; border-radius: 8px;">
+                  <h3 class="heading-font" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">&#127912; Creative Simulations</h3>
+                  <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; font-size: 0.95rem;">Build simulations exploring math, science, and art concepts through interactive coding</p>
+                </div>
+                
+                <div style="padding: 1.5rem; background-color: ${config.background_color}; border-radius: 8px;">
+                  <h3 class="heading-font" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">&#127925; Music & Animation</h3>
+                  <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; font-size: 0.95rem;">Compose music, synchronize animations, and create visual effects using code blocks</p>
+                </div>
+              </div>
+              
+              <div style="margin-top: 2rem; padding: 1.5rem; background-color: ${config.highlight_color}; border-radius: 8px;">
+                <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; font-weight: 500;"><strong>Key Learning Outcomes:</strong> Sequencing, loops, conditionals, variables, events, debugging, and creative problem-solving through hands-on project-based learning.</p>
+              </div>
+              
+              <!-- Additional Scratch Projects Image -->
+              <div style="margin-top: 2rem;">
+                <img src="https://i.imgur.com/TOxnSkZ.jpg" alt="More Scratch Programming Examples" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);" onerror="this.style.display='none'; this.alt='Image failed to load';">
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      `,
+      
+      classroom: () => `
+        <div class="page-transition" style="max-width: 900px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Classroom Practice</h1>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Creating inclusive, joyful learning spaces where every student thrives</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 2rem;">
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="width: 70px; height: 70px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 2.5rem;">&#127979;</span>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                  <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Classroom Environment</h3>
+                  <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85;">Thoughtfully organized learning spaces that balance structure with flexibility. My classrooms feature clear routines, accessible materials, student work displays, and areas for both collaborative and independent learning.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="width: 70px; height: 70px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 2.5rem;">&#11088;</span>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                  <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Positive Behaviour Strategies</h3>
+                  <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85;">Proactive approaches that emphasize clear expectations, consistent routines, and positive reinforcement. Building a classroom culture of mutual respect, responsibility, and kindness through modeling and explicit teaching.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="width: 70px; height: 70px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 2.5rem;">&#10024;</span>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                  <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Student Engagement</h3>
+                  <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85;">Lessons designed to spark curiosity and maintain active participation. Through varied instructional strategies, meaningful tasks, and student choice, I create learning experiences that keep students motivated and invested.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+              <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
+                <div style="width: 70px; height: 70px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <span style="font-size: 2.5rem;">&#129309;</span>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                  <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">Inclusive Learning Spaces</h3>
+                  <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85;">Every student deserves to feel welcome, valued, and capable. My classroom practices honor diverse backgrounds, learning styles, and needs, ensuring all students have access to high-quality learning opportunities and support.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      
+      homework: () => `
+        <div class="page-transition" style="max-width: 1400px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Interactive Homework</h1>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Engaging digital homework activities that reinforce classroom learning and promote independent practice</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 3rem;">
+            
+            <!-- Introduction Section -->
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid ${config.accent_color};">
+              <h2 class="heading-font" style="font-size: 1.75rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Making Homework Meaningful</h2>
+              <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1rem;">Interactive homework transforms traditional practice into engaging digital experiences. Each activity is designed to be accessible, self-paced, and connected to classroom learning goals.</p>
+              <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1rem;">Students receive immediate feedback, track their progress, and can revisit activities as needed, promoting independence and confidence.</p>
+              <p class="body-font" style="line-height: 1.7; color: ${config.text_color}; opacity: 0.85;"><strong>As a teacher, I can track my students' work simply</strong>, monitoring completion and progress to provide timely support and celebrate achievements.</p>
+            </div>
+            
+            <!-- Examples Section -->
+            <div>
+              <h2 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 2rem; color: ${config.text_color};">Interactive Activities:</h2>
+              <p class="body-font" style="font-size: 1rem; line-height: 1.7; color: ${config.text_color}; opacity: 0.85; margin-bottom: 2rem;">Click on any activity below to interact with it directly on this page!</p>
+              
+              <div style="display: flex; flex-direction: column; gap: 3rem;">
+                
+                <!-- Science Term 2 -->
+                <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <span style="font-size: 2.5rem;">&#128300;</span>
+                    <div>
+                      <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; color: ${config.text_color};">Science Revision - Term 2 Year 4</h3>
+                      <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.7;">Comprehensive science topics for Year 4 students</p>
+                    </div>
+                  </div>
+                  <button onclick="openHomeworkViewer('Science Term 2', 'https://sarrbenamara.github.io/science-term-2-year4-/')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 500; cursor: pointer; margin-bottom: 1.5rem;">Open Activity</button>
+                </div>
+                
+                <!-- Our Skeleton -->
+                <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <span style="font-size: 2.5rem;">&#129460;</span>
+                    <div>
+                      <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; color: ${config.text_color};">Our Skeleton</h3>
+                      <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.7;">Interactive activities about the human skeletal system</p>
+                    </div>
+                  </div>
+                  <button onclick="openHomeworkViewer('Our Skeleton', 'https://sarrbenamara.github.io/Ourskeleton/')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 500; cursor: pointer; margin-bottom: 1.5rem;">Open Activity</button>
+                </div>
+                
+                <!-- Year 6 Checkpoint Revision -->
+                <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <span style="font-size: 2.5rem;">&#128221;</span>
+                    <div>
+                      <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; color: ${config.text_color};">Year 6 - Checkpoint Revision</h3>
+                      <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.7;">Comprehensive revision activities for Term 2 checkpoint preparation</p>
+                    </div>
+                  </div>
+                  <button onclick="openHomeworkViewer('Year 6 Checkpoint', 'https://sarrbenamara.github.io/Term2--Revision-y6-7/')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 500; cursor: pointer; margin-bottom: 1.5rem;">Open Activity</button>
+                </div>
+                
+                <!-- Illness and Health -->
+                <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <span style="font-size: 2.5rem;">&#127973;</span>
+                    <div>
+                      <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; color: ${config.text_color};">Revision - Illness and Health</h3>
+                      <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.7;">Interactive activities covering health topics and illness-related vocabulary</p>
+                    </div>
+                  </div>
+                  <button onclick="openHomeworkViewer('Illness and Health', 'https://sarrbenamara.github.io/Illnessandhealth/')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 500; cursor: pointer; margin-bottom: 1.5rem;">Open Activity</button>
+                </div>
+                
+                <!-- Prefixes and Suffixes -->
+                <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                  <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <span style="font-size: 2.5rem;">&#128292;</span>
+                    <div>
+                      <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; color: ${config.text_color};">Prefix and Suffix Revision</h3>
+                      <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.7;">Practice activities for understanding and using prefixes and suffixes to build vocabulary</p>
+                    </div>
+                  </div>
+                  <button onclick="openHomeworkViewer('Prefixes and Suffixes', 'https://sarrbenamara.github.io/PrefixesandSuffixes/')" class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 500; cursor: pointer; margin-bottom: 1.5rem;">Open Activity</button>
+                </div>
+                
+              </div>
+            </div>
+            
+            <!-- Features Section -->
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid ${config.accent_color};">
+              <h2 class="heading-font" style="font-size: 1.75rem; font-weight: 600; margin-bottom: 1.5rem; color: ${config.text_color};">Key Features</h2>
+              
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div>
+                  <h4 class="heading-font" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color};">&#127919; Self-Paced Learning</h4>
+                  <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; font-size: 0.95rem;">Students work at their own pace with unlimited attempts and immediate feedback</p>
+                </div>
+                
+                <div>
+                  <h4 class="heading-font" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color};">&#128202; Progress Tracking</h4>
+                  <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; font-size: 0.95rem;">Teachers and parents can monitor completion and performance in real-time</p>
+                </div>
+                
+                <div>
+                  <h4 class="heading-font" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color};">&#127760; Accessible Anywhere</h4>
+                  <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; font-size: 0.95rem;">Works on computers, tablets, and smartphones for flexible learning</p>
+                </div>
+                
+                <div>
+                  <h4 class="heading-font" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color};">&#127918; Engaging Format</h4>
+                  <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; font-size: 0.95rem;">Game-based elements make practice enjoyable and motivating</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      `,
+      
+      contact: () => `
+        <div class="page-transition" style="max-width: 700px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Get In Touch</h1>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">I'd love to hear from you! Whether you're interested in collaboration, have questions, or just want to connect.</p>
+          
+          <div style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 2rem;">
+            <form id="contact-form" action="https://formspree.io/f/mzdbnjya" method="POST">
+              <div style="margin-bottom: 1.5rem;">
+                <label for="contact-name" class="body-font" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: ${config.text_color};">Your Name</label>
+                <input type="text" id="contact-name" name="name" required style="width: 100%; padding: 0.75rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-family: 'Inter', sans-serif; color: ${config.text_color}; background-color: ${config.background_color};" placeholder="Enter your name">
+              </div>
+              
+              <div style="margin-bottom: 1.5rem;">
+                <label for="contact-email" class="body-font" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: ${config.text_color};">Your Email</label>
+                <input type="email" id="contact-email" name="email" required style="width: 100%; padding: 0.75rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-family: 'Inter', sans-serif; color: ${config.text_color}; background-color: ${config.background_color};" placeholder="your.email@example.com">
+              </div>
+              
+              <div style="margin-bottom: 1.5rem;">
+                <label for="contact-subject" class="body-font" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: ${config.text_color};">Subject</label>
+                <input type="text" id="contact-subject" name="subject" required style="width: 100%; padding: 0.75rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-family: 'Inter', sans-serif; color: ${config.text_color}; background-color: ${config.background_color};" placeholder="What's this about?">
+              </div>
+              
+              <div style="margin-bottom: 1.5rem;">
+                <label for="contact-message" class="body-font" style="display: block; margin-bottom: 0.5rem; font-weight: 500; color: ${config.text_color};">Message</label>
+                <textarea id="contact-message" name="message" required rows="6" style="width: 100%; padding: 0.75rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-family: 'Inter', sans-serif; color: ${config.text_color}; background-color: ${config.background_color}; resize: vertical;" placeholder="Tell me more..."></textarea>
+              </div>
+              
+              <button type="submit" class="btn-primary body-font" style="width: 100%; background-color: ${config.accent_color}; color: white; padding: 1rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">Send Message</button>
+            </form>
+            
+            <div id="form-success" style="display: none; margin-top: 1.5rem; padding: 1rem; background-color: ${config.highlight_color}; border-radius: 8px; text-align: center;">
+              <p class="body-font" style="color: ${config.text_color}; font-weight: 500;">�� Thank you! Your message has been sent to my email!</p>
+            </div>
+          </div>
+          
+        </div>
+      `,
+      
+      // Add game pages here (phonics-games, math-games, digital-games)
+      'phonics-games': () => `
+        <div class="page-transition" style="max-width: 1100px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Phonics Games</h1>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Interactive phonics activities that make learning to read fun and engaging</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="font-size: 3rem;">&#127183;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Build-the-Word Cards</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Drag and drop letters to build words from picture prompts. Perfect for CVC words and phoneme practice.</p>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Demo Only</button>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="font-size: 3rem;">&#129504;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Phonics Memory Match</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Match letters with sounds, pictures with words. A classic memory game with a phonics twist!</p>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Demo Only</button>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="font-size: 3rem;">&#127919;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Spin & Read</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Spin the wheel to select a phoneme, then choose the matching word or picture. Fun and unpredictable!</p>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Demo Only</button>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="font-size: 3rem;">&#128642;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Word Builder Train</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Build words by connecting train carriages with phonemes. Watch the train move as you progress!</p>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Demo Only</button>
+            </div>
+          </div>
+          
+          <div style="margin-top: 2rem; text-align: center;">
+            <button onclick="navigateToPage('games')" class="btn-primary body-font" style="background-color: white; color: ${config.accent_color}; padding: 0.75rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">Back to Games & Learning</button>
+          </div>
+        </div>
+      `,
+      
+      'math-games': () => `
+        <div class="page-transition" style="max-width: 1100px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Math & Logic Games</h1>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Building strong mathematical thinking through interactive games</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="font-size: 3rem;">&#128290;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Number Sense Builder</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Build strong number sense through counting, comparing, and ordering activities with visual support</p>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Demo Only</button>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="font-size: 3rem;">&#129513;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Problem-Solving Challenge</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Solve engaging word problems with visual cues and step-by-step guidance</p>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Demo Only</button>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="font-size: 3rem;">&#127912;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Pattern Recognition Puzzle</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Identify and complete visual and numerical patterns with increasing complexity</p>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Demo Only</button>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="font-size: 3rem;">&#128101;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Collaborative Math Game</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Work together to solve math challenges and build numbers cooperatively</p>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Demo Only</button>
+            </div>
+          </div>
+          
+          <div style="margin-top: 2rem; text-align: center;">
+            <button onclick="navigateToPage('games')" class="btn-primary body-font" style="background-color: white; color: ${config.accent_color}; padding: 0.75rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">Back to Games & Learning</button>
+          </div>
+        </div>
+      `,
+      
+      'digital-games': () => `
+        <div class="page-transition" style="max-width: 1100px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Digital Learning Games</h1>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Interactive digital games for vocabulary, comprehension, and language skills</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="font-size: 3rem;">&#128214;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Reading Comprehension Quest</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Read passages and complete interactive comprehension activities</p>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Demo Only</button>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="font-size: 3rem;">&#128444;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Vocabulary Picture Quest</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Find and click objects in colorful scenes to learn new words</p>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Demo Only</button>
+            </div>
+            
+            <div class="card" style="background-color: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+              <div style="width: 80px; height: 80px; border-radius: 12px; background-color: ${config.accent_color}; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                <span style="font-size: 3rem;">&#128506;</span>
+              </div>
+              <h3 class="heading-font" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Vocabulary Maze</h3>
+              <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem;">Navigate through mazes by answering vocabulary questions</p>
+              <button class="btn-primary body-font" style="background-color: ${config.accent_color}; color: white; padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; width: 100%; opacity: 0.6;" disabled>Demo Only</button>
+            </div>
+          </div>
+          
+          <div style="margin-top: 2rem; text-align: center;">
+            <button onclick="navigateToPage('games')" class="btn-primary body-font" style="background-color: white; color: ${config.accent_color}; padding: 0.75rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">Back to Games & Interactive Learning</button>
+          </div>
+        </div>
+      `,
+      
+      'lesson-summaries': () => `
+        <div class="page-transition" style="max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;">
+          <h1 class="heading-font" style="font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: ${config.text_color};">Lesson Summaries</h1>
+          <p class="body-font" style="font-size: 1.125rem; line-height: 1.8; color: ${config.text_color}; opacity: 0.8; margin-bottom: 3rem;">Visual summaries and key takeaways from classroom lessons to support student review and learning</p>
+          
+          <div id="summaries-container" style="display: flex; flex-direction: column; gap: 4rem; margin-bottom: 3rem;">
+            <!-- Lesson summaries galleries will be dynamically added here -->
+          </div>
+          
+          <div style="margin-top: 2rem; text-align: center;">
+            <button onclick="navigateToPage('games')" class="btn-primary body-font" style="background-color: white; color: ${config.accent_color}; padding: 0.75rem 2rem; border: 2px solid ${config.accent_color}; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">Back to Games & Interactive Learning</button>
+          </div>
+        </div>
+      `
+    };
+
+    function navigateToPage(page) {
+      currentPage = page;
+      
+      // Update active nav link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        link.style.color = config.text_color;
+      });
+      const activeLink = document.querySelector(`[data-page="${page}"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
+        activeLink.style.color = config.accent_color;
+      }
+      
+      // Render new page
+      const mainContent = document.getElementById('main-content');
+      mainContent.innerHTML = pages[page]();
+      
+      // If books page, render flip books
+      if (page === 'books') {
+        renderFlipBooks();
+      }
+      
+      // If lesson summaries page, render summaries
+      if (page === 'lesson-summaries') {
+        renderLessonSummaries();
+      }
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    function openBookViewer(title, url) {
+      // Create modal overlay
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      `;
+      
+      // Create close button
+      const closeBtn = document.createElement('button');
+      closeBtn.textContent = '✕ Close';
+      closeBtn.className = 'btn-primary body-font';
+      closeBtn.style.cssText = `
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: ${config.accent_color};
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        z-index: 1001;
+      `;
+      closeBtn.onclick = () => modal.remove();
+      
+      // Create iframe
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.style.cssText = `
+        width: 90%;
+        max-width: 1200px;
+        height: 85%;
+        border: none;
+        border-radius: 12px;
+        background-color: white;
+      `;
+      
+      modal.appendChild(closeBtn);
+      modal.appendChild(iframe);
+      document.body.appendChild(modal);
+    }
+
+    function openHomeworkViewer(title, url) {
+      // Create modal overlay
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      `;
+      
+      // Create close button
+      const closeBtn = document.createElement('button');
+      closeBtn.textContent = '✕ Close';
+      closeBtn.className = 'btn-primary body-font';
+      closeBtn.style.cssText = `
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: ${config.accent_color};
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        z-index: 1001;
+      `;
+      closeBtn.onclick = () => modal.remove();
+      
+      // Create iframe
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.style.cssText = `
+        width: 90%;
+        max-width: 1200px;
+        height: 85%;
+        border: none;
+        border-radius: 12px;
+        background-color: white;
+      `;
+      
+      modal.appendChild(closeBtn);
+      modal.appendChild(iframe);
+      document.body.appendChild(modal);
+    }
+
+    function renderFlipBooks() {
+      const container = document.getElementById('flip-books-container');
+      if (!container) return;
+      
+      if (flipBooks.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1 / -1; padding: 3rem; text-align: center; background-color: white; border-radius: 12px; border: 2px dashed ${config.accent_color};">
+            <span style="font-size: 3rem; margin-bottom: 1rem; display: block;">&#128218;</span>
+            <p class="body-font" style="font-size: 1.125rem; color: ${config.text_color}; opacity: 0.7;">No flip books added yet. Update the flipBooks array in the code to display your books!</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = flipBooks.map((book, index) => `
+        <div class="card" style="background-color: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: transform 0.3s ease;">
+          <div style="width: 100%; height: 250px; border-radius: 8px; overflow: hidden; margin-bottom: 1.25rem; background-color: #f5f5f5;">
+            <img src="${book.cover}" alt="${book.title}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;font-size:4rem;\\'>&#128218;</div>';">
+          </div>
+          <h3 class="heading-font" style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.75rem; color: ${config.text_color};">${book.title}</h3>
+          <p class="body-font" style="line-height: 1.6; color: ${config.text_color}; opacity: 0.85; margin-bottom: 1.5rem; flex-grow: 1;">${book.description}</p>
+          <button onclick='openBookViewer("${book.title.replace(/'/g, "\\'")}","${book.url}")' class="btn-primary body-font" style="display: block; text-align: center; background-color: ${config.accent_color}; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer;">Read Book</button>
+        </div>
+      `).join('');
+    }
+
+    function renderLessonSummaries() {
+      const container = document.getElementById('summaries-container');
+      if (!container) return;
+      
+      if (lessonSummaries.length === 0) {
+        container.innerHTML = `
+          <div style="padding: 3rem; text-align: center; background-color: white; border-radius: 12px; border: 2px dashed ${config.accent_color};">
+            <span style="font-size: 3rem; margin-bottom: 1rem; display: block;">&#128221;</span>
+            <p class="body-font" style="font-size: 1.125rem; color: ${config.text_color}; opacity: 0.7; margin-bottom: 1rem;">No lesson summaries added yet.</p>
+            <p class="body-font" style="font-size: 0.95rem; color: ${config.text_color}; opacity: 0.6;">Update the lessonSummaries array in the code to display your lesson summary images!</p>
+          </div>
+        `;
+        return;
+      }
+      
+      // Group summaries by subject
+      const groupedSummaries = lessonSummaries.reduce((acc, summary) => {
+        const subject = summary.subject || 'Other';
+        if (!acc[subject]) {
+          acc[subject] = [];
+        }
+        acc[subject].push(summary);
+        return acc;
+      }, {});
+      
+      // Render a gallery for each subject
+      container.innerHTML = Object.entries(groupedSummaries).map(([subject, summaries]) => {
+        const galleryId = `gallery-${subject.toLowerCase().replace(/\s+/g, '-')}`;
+        
+        return `
+          <div class="card" style="background-color: white; border-radius: 12px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <h2 class="heading-font" style="font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; color: ${config.text_color};">${subject} Summaries</h2>
+            <p class="body-font" style="color: ${config.text_color}; opacity: 0.7; margin-bottom: 2rem;">${summaries.length} ${summaries.length === 1 ? 'summary' : 'summaries'}</p>
+            
+            <div style="position: relative;">
+              <!-- Gallery Container -->
+              <div id="${galleryId}" style="position: relative; width: 100%; height: 500px; overflow: hidden; border-radius: 12px; background-color: #f5f5f5;">
+                ${summaries.map((summary, index) => `
+                  <div class="gallery-slide" data-gallery="${galleryId}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: ${index === 0 ? 'flex' : 'none'}; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; transition: opacity 0.3s ease;">
+                    <img src="${summary.image}" alt="${summary.title}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size:4rem;\\'>&#128221;</div>';">
+                  </div>
+                `).join('')}
+              </div>
+              
+              <!-- Navigation Buttons -->
+              <button onclick="navigateGallery('${galleryId}', -1)" class="btn-primary body-font" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); background-color: ${config.accent_color}; color: white; padding: 0.75rem 1rem; border: none; border-radius: 50%; font-size: 1.5rem; font-weight: bold; cursor: pointer; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">‹</button>
+              <button onclick="navigateGallery('${galleryId}', 1)" class="btn-primary body-font" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background-color: ${config.accent_color}; color: white; padding: 0.75rem 1rem; border: none; border-radius: 50%; font-size: 1.5rem; font-weight: bold; cursor: pointer; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">›</button>
+              
+              <!-- Counter -->
+              <div id="${galleryId}-counter" class="body-font" style="position: absolute; bottom: 1rem; left: 50%; transform: translateX(-50%); background-color: rgba(0,0,0,0.7); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">1 / ${summaries.length}</div>
+              
+              <!-- Image Titles -->
+              <div id="${galleryId}-title" class="heading-font" style="margin-top: 1.5rem; text-align: center; font-size: 1.25rem; font-weight: 600; color: ${config.text_color};">${summaries[0].title}</div>
+            </div>
+            
+            <!-- Thumbnails -->
+            <div style="display: flex; gap: 1rem; margin-top: 2rem; overflow-x: auto; padding: 0.5rem 0;">
+              ${summaries.map((summary, index) => `
+                <div onclick="jumpToSlide('${galleryId}', ${index})" style="flex-shrink: 0; width: 100px; height: 100px; border-radius: 8px; overflow: hidden; cursor: pointer; border: 3px solid ${index === 0 ? config.accent_color : 'transparent'}; transition: border-color 0.3s ease;" id="${galleryId}-thumb-${index}">
+                  <img src="${summary.image}" alt="${summary.title}" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+      
+      // Initialize gallery data
+      window.galleryState = window.galleryState || {};
+      Object.keys(groupedSummaries).forEach(subject => {
+        const galleryId = `gallery-${subject.toLowerCase().replace(/\s+/g, '-')}`;
+        window.galleryState[galleryId] = {
+          currentIndex: 0,
+          summaries: groupedSummaries[subject]
+        };
+      });
+    }
+
+    function navigateGallery(galleryId, direction) {
+      const state = window.galleryState[galleryId];
+      if (!state) return;
+      
+      const slides = document.querySelectorAll(`[data-gallery="${galleryId}"]`);
+      const totalSlides = slides.length;
+      
+      // Update index
+      state.currentIndex = (state.currentIndex + direction + totalSlides) % totalSlides;
+      
+      // Hide all slides
+      slides.forEach(slide => {
+        slide.style.display = 'none';
+      });
+      
+      // Show current slide
+      slides[state.currentIndex].style.display = 'flex';
+      
+      // Update counter
+      const counter = document.getElementById(`${galleryId}-counter`);
+      if (counter) {
+        counter.textContent = `${state.currentIndex + 1} / ${totalSlides}`;
+      }
+      
+      // Update title
+      const title = document.getElementById(`${galleryId}-title`);
+      if (title && state.summaries[state.currentIndex]) {
+        title.textContent = state.summaries[state.currentIndex].title;
+      }
+      
+      // Update thumbnail borders
+      for (let i = 0; i < totalSlides; i++) {
+        const thumb = document.getElementById(`${galleryId}-thumb-${i}`);
+        if (thumb) {
+          thumb.style.borderColor = i === state.currentIndex ? config.accent_color : 'transparent';
+        }
+      }
+    }
+
+    function jumpToSlide(galleryId, index) {
+      const state = window.galleryState[galleryId];
+      if (!state) return;
+      
+      const direction = index - state.currentIndex;
+      state.currentIndex = index - 1; // Subtract 1 because navigateGallery will add direction
+      navigateGallery(galleryId, direction > 0 ? 1 : -1);
+    }
+
+    function openImageModal(imageUrl, title) {
+      const modal = document.createElement('div');
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      `;
+      
+      const closeBtn = document.createElement('button');
+      closeBtn.textContent = '✕ Close';
+      closeBtn.className = 'btn-primary body-font';
+      closeBtn.style.cssText = `
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background-color: ${config.accent_color};
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        z-index: 1001;
+      `;
+      closeBtn.onclick = () => modal.remove();
+      
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.alt = title;
+      img.style.cssText = `
+        max-width: 90%;
+        max-height: 85%;
+        object-fit: contain;
+        border-radius: 8px;
+        background-color: white;
+      `;
+      
+      const caption = document.createElement('p');
+      caption.textContent = title;
+      caption.className = 'body-font';
+      caption.style.cssText = `
+        color: white;
+        margin-top: 1rem;
+        font-size: 1.125rem;
+        text-align: center;
+      `;
+      
+      modal.appendChild(closeBtn);
+      modal.appendChild(img);
+      modal.appendChild(caption);
+      document.body.appendChild(modal);
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      // Show success message
+      const form = document.getElementById('contact-form');
+      const successMessage = document.getElementById('form-success');
+      
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+      
+      // Reset form after delay
+      setTimeout(() => {
+        form.reset();
+        form.style.display = 'block';
+        successMessage.style.display = 'none';
+      }, 3000);
+    }
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileSidebar = document.getElementById('mobile-sidebar');
+    const closeSidebarBtn = document.getElementById('close-sidebar-btn');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    
+    function openMobileMenu() {
+      mobileSidebar.style.right = '0';
+      sidebarOverlay.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMobileMenu() {
+      mobileSidebar.style.right = '-100%';
+      sidebarOverlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    closeSidebarBtn.addEventListener('click', closeMobileMenu);
+    sidebarOverlay.addEventListener('click', closeMobileMenu);
+    
+    // Set up navigation listeners
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = link.getAttribute('data-page');
+        navigateToPage(page);
+        
+        // Close mobile menu if open
+        if (window.innerWidth <= 768) {
+          closeMobileMenu();
+        }
+      });
+    });
+
+    // Initial render
+    navigateToPage('home');
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b6736ad92cb0e49',t:'MTc2NzE1NzIyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
